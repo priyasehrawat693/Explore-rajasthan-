@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajasthani Shopping - Land of Kings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ========== BASE STYLES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #D4AF37;
+            --secondary: #8B0000;
+            --dark: #1A1A1A;
+            --light: #F5F5F5;
+            --accent: #FF7F50;
+            --text: #333333;
+            --gray: #888888;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ========== NAVIGATION ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(26, 26, 26, 0.95);
+            padding: 15px 0;
+            transition: var(--transition);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-menu a {
+            color: white;
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after, .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: white;
+            transition: var(--transition);
+        }
+
+        /* ========== SHOPPING HERO SECTION ========== */
+        .shopping-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://imgs.search.brave.com/etZN1ryLNRxkF8Meg80h9NJ-74AyCTBkpNZLKRVUy6U/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAwLzgxLzY1LzUy/LzM2MF9GXzgxNjU1/MjIyX2ZPVTc0OU01/RmRUN1VKZm52RlJS/SmFtTWhWY1RCbVFo/LmpwZw');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            padding: 120px 0 60px;
+            margin-top: 60px;
+        }
+
+        .shopping-hero-content h1 {
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .shopping-hero-content h2 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .shopping-hero-content p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .shopping-hero-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .hero-tag {
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--primary);
+            border-radius: 30px;
+            padding: 8px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        /* ========== SHOPPING CATEGORY SECTION ========== */
+        .shopping-category {
+            padding: 50px 0;
+        }
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .category-header h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .category-header h2 i {
+            color: var(--primary);
+        }
+
+        .category-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .category-tagline {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        /* ========== CITY SECTION ========== */
+        .city-section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            transition: var(--transition);
+        }
+
+        .city-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .city-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .city-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .city-header h2 {
+            font-size: 1.6rem;
+            margin: 0;
+        }
+
+        .city-header p {
+            color: var(--gray);
+            margin-top: 5px;
+        }
+
+        /* City Content */
+        .city-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .city-item {
+            background: #f8f8f8;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .city-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .city-item-image {
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .city-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .city-item:hover .city-item-image img {
+            transform: scale(1.05);
+        }
+
+        .city-item-content {
+            padding: 15px;
+        }
+
+        .city-item-title {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--secondary);
+        }
+
+        .city-item-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .city-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .city-detail-item i {
+            color: var(--primary);
+            width: 16px;
+        }
+
+        /* ========== SHOPPING GRID ========== */
+        .shopping-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .shopping-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .shopping-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .shopping-card-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .shopping-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .shopping-card:hover .shopping-card-image img {
+            transform: scale(1.05);
+        }
+
+        .shopping-card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .shopping-card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .shopping-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .shopping-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .shopping-card-title {
+            font-size: 1.3rem;
+            margin: 0;
+            color: var(--secondary);
+            flex-grow: 1;
+        }
+
+        .city-tag {
+            background: var(--primary);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-left: 5px;
+        }
+
+        .shopping-card-description {
+            color: var(--gray);
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .shopping-details {
+            margin: 15px 0;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .detail-item i {
+            color: var(--primary);
+            width: 16px;
+        }
+
+        .price-tag {
+            color: var(--primary);
+            font-weight: 600;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+
+        /* ========== SHOPPING TIPS CARD ========== */
+        .shopping-tips-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin: 40px 0;
+            transition: var(--transition);
+        }
+
+        .shopping-tips-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .tips-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tips-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .tips-header h2 {
+            font-size: 1.6rem;
+            margin: 0;
+        }
+
+        .tips-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .tips-image {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tips-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .tips-details h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .tips-list ul {
+            margin-top: 15px;
+        }
+
+        .tips-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tip-name {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .tip-desc {
+            color: var(--gray);
+            text-align: right;
+        }
+
+        /* ========== INFO GRID ========== */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .info-box {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .info-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-box h4 i {
+            color: var(--primary);
+        }
+
+        .info-box p {
+            margin-bottom: 10px;
+            color: var(--text);
+            font-size: 0.9rem;
+            padding-left: 25px;
+        }
+
+        /* ========== SHOPPING PLANNING ========== */
+        .shopping-planning {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin: 40px 0;
+        }
+
+        .shopping-planning h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .planning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .planning-item {
+            background: #f8f8f8;
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .planning-item h5 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .planning-item p {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        /* ========== BACK BUTTON ========== */
+        .back-to-home {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3, .footer-section h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary);
+        }
+
+        .footer-section p {
+            color: #bbb;
+            margin-bottom: 15px;
+            line-height: 1.7;
+            font-size: 0.9rem;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-section ul li a.active {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        .contact-info i {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom i {
+            color: #ff4757;
+        }
+
+        /* ========== RESPONSIVE STYLES ========== */
+        @media (max-width: 992px) {
+            .shopping-hero-content h1 {
+                font-size: 2.3rem;
+            }
+            
+            .category-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .shopping-grid, .city-content {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .tips-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--dark);
+                text-align: center;
+                transition: var(--transition);
+                padding: 15px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 12px 0;
+            }
+            
+            .shopping-hero {
+                padding: 100px 0 40px;
+            }
+            
+            .shopping-hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .shopping-hero-content h2 {
+                font-size: 1.3rem;
+            }
+            
+            .shopping-grid, .city-content, .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .city-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .planning-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .shopping-hero-content h1 {
+                font-size: 1.7rem;
+            }
+            
+            .shopping-hero-content p {
+                font-size: 1rem;
+            }
+            
+            .category-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .city-header h2 {
+                font-size: 1.3rem;
+            }
+            
+            .city-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .shopping-hero-tags {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .back-btn {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Rajasthan<span>Tour</span></a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cities.html">Cities</a></li>
+                <li><a href="forts.html">Forts & Palaces</a></li>
+                <li><a href="temples.html">Temples</a></li>
+                <li><a href="culture.html">Culture</a></li>
+                <li><a href="adventure.html">Adventure</a></li>
+                <li><a href="food.html">Food</a></li>
+                <li><a href="hotels.html">Hotels</a></li>
+                <li><a href="shopping.html" class="active">Shopping</a></li>
+                <li><a href="festivals.html">Festivals</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shopping Hero Section -->
+    <section class="shopping-hero">
+        <div class="container shopping-hero-content">
+            <h1>RAJASTHANI SHOPPING MARKETS</h1>
+            <h2>Traditional Handicrafts • Textiles • Jewelry • Souvenirs</h2>
+            <p>Explore the vibrant bazaars and markets of Rajasthan, where every corner tells a story through exquisite crafts, colorful textiles, and traditional handicrafts passed down through generations.</p>
+            <div class="shopping-hero-tags">
+                <div class="hero-tag"><i class="fas fa-gem"></i> Jewelry Markets</div>
+                <div class="hero-tag"><i class="fas fa-tshirt"></i> Textile Bazaars</div>
+                <div class="hero-tag"><i class="fas fa-paint-brush"></i> Handicrafts</div>
+                <div class="hero-tag"><i class="fas fa-shopping-bag"></i> Traditional Souvenirs</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jaipur Shopping Section -->
+    <section class="shopping-category">
+        <div class="container">
+            <div class="category-header">
+                <h2><i class="fas fa-shopping-bag"></i> JAIPUR SHOPPING</h2>
+                <p class="category-tagline">The Pink City's vibrant markets offering everything from royal jewelry to traditional textiles</p>
+            </div>
+            
+            <div class="city-section">
+                <div class="city-header">
+                    <div class="city-icon">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <div>
+                        <h2>🌸 Jaipur – The Shopping Hub</h2>
+                        <p>Pink City's vibrant markets offering everything from jewelry to textiles</p>
+                    </div>
+                </div>
+                
+                <div class="city-content">
+                    <!-- Johari Bazaar -->
+                    <div class="city-item">
+                        <div class="city-item-image">
+                            <img src="https://imgs.search.brave.com/2AVjsd613FJT3opFlPpPLiKs6-gpbF7jzfcJs885Fcg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTIy/OTYwODY2Ni9waG90/by9hbi1pbGx1bWlu/YXRlZC1qb2hhcmkt/YmF6YXItb24tdGhl/LW9jY2FzaW9uLW9m/LXRoZS1kaXdhbGkt/ZmVzdGl2YWwtaW4t/amFpcHVyLXJhamFz/dGhhbi1pbmRpYS5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/dlRqcTlmUERkblVu/V0pzaVB2Q3o5SzJS/Z3pyQ0J1ejFDNThV/SUFaOF95QT0" alt="Johari Bazaar">
+                        </div>
+                        <div class="city-item-content">
+                            <h3 class="city-item-title">Johari Bazaar</h3>
+                            <div class="city-item-details">
+                                <div class="city-detail-item">
+                                    <i class="fas fa-star"></i>
+                                    <div><strong>Famous for:</strong> Gold & silver jewelry, gemstones</div>
+                                </div>
+                                <div class="city-detail-item">
+                                    <i class="fas fa-crown"></i>
+                                    <div>Royal kundan–meenakari work</div>
+                                </div>
+                                <div class="city-detail-item">
+                                    <i class="fas fa-rupee-sign"></i>
+                                    <div>Jewelry: ₹2,000 – ₹50,000+</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bapu Bazaar -->
+                    <div class="city-item">
+                        <div class="city-item-image">
+                            <img src="https://imgs.search.brave.com/MV3QFLA5ZO6lfY4k9wdT1iD5cTAXXk1hRtPbh_yVJVY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9haXJp/YWwudHJhdmVsL19u/ZXh0L2ltYWdlP3Vy/bD1odHRwczovL2Nv/aW52ZW50bWVkaWFz/dG9yYWdlLmJsb2Iu/Y29yZS53aW5kb3dz/Lm5ldC9tZWRpYS1z/dG9yYWdlLWNvbnRh/aW5lci9ncGhvdG9f/Q2hJSnFWVngzYk8y/YlRrUk0xRlhtNDd2/Mm5zXzAuanBnJnc9/Mzg0MCZxPTc1" alt="Bapu Bazaar">
+                        </div>
+                        <div class="city-item-content">
+                            <h3 class="city-item-title">Bapu Bazaar</h3>
+                            <div class="city-item-details">
+                                <div class="city-detail-item">
+                                    <i class="fas fa-star"></i>
+                                    <div><strong>Famous for:</strong> Mojris, bandhani suits, handicrafts</div>
+                                </div>
+                                <div class="city-detail-item">
+                                    <i class="fas fa-tshirt"></i>
+                                    <div>Traditional textiles & footwear</div>
+                                </div>
+                                <div class="city-detail-item">
+                                    <i class="fas fa-rupee-sign"></i>
+                                    <div>Clothes & mojris: ₹300 – ₹3,000</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tripolia Bazaar -->
+                    <div class="city-item">
+                        <div class="city-item-image">
+                            <img src="https://imgs.search.brave.com/9BY9N9389gf4aXBy1jctiNTng3jylibUHDU5CBptgmM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjI0/MTgyMTE3OC9waG90/by9hLXN0cmVldC1p/cy1pbGx1bWluYXRl/ZC13aXRoLWxpZ2h0/LWF0LXRyaXBvbGlh/LWJhemFhci1hbWlk/LXRoZS1kaXdhbGkt/ZmVzdGl2aXRpZXMt/aW4tamFpcHVyLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1W/OHJSNE1JbFcyQUlQ/RGNyWTJjZkh6QjVK/RVA0aFpiYUMtVXlN/NjhkWnRzPQ" alt="Tripolia Bazaar">
+                        </div>
+                        <div class="city-item-content">
+                            <h3 class="city-item-title">Tripolia Bazaar</h3>
+                            <div class="city-item-details">
+                                <div class="city-detail-item">
+                                    <i class="fas fa-star"></i>
+                                    <div><strong>Famous for:</strong> Lac bangles, brass items</div>
+                                </div>
+                                <div class="city-detail-item">
+                                    <i class="fas fa-paint-brush"></i>
+                                    <div>Traditional jewelry & home decor</div>
+                                </div>
+                                <div class="city-detail-item">
+                                    <i class="fas fa-rupee-sign"></i>
+                                    <div>Bangles & decor: ₹200 – ₹2,000</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Famous Markets Section -->
+    <section class="shopping-category">
+        <div class="container">
+            <div class="category-header">
+                <h2><i class="fas fa-store"></i> FAMOUS MARKETS OF RAJASTHAN</h2>
+                <p class="category-tagline">Explore the most iconic shopping destinations across Rajasthan's cities</p>
+            </div>
+
+            <div class="shopping-grid">
+                <!-- Johari Bazaar -->
+                <div class="shopping-card">
+                    <div class="shopping-card-image">
+                        <img src="https://imgs.search.brave.com/Py9FTAKpt2alEH3W3Lufx7bL_KcQfhYVk4U4drIqvIc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMudHJhdmVsdHJp/YW5nbGUuY29tL2Js/b2cvd3AtY29udGVu/dC91cGxvYWRzLzIw/MjMvMDMvVHJpcG9s/aWEtQmF6YWFyLmpw/Zw" alt="Johari Bazaar">
+                        <div class="shopping-card-badge">Jewelry Hub</div>
+                    </div>
+                    <div class="shopping-card-content">
+                        <div class="shopping-card-header">
+                            <div class="shopping-icon">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <h3 class="shopping-card-title">Johari Bazaar <span class="city-tag">Jaipur</span></h3>
+                        </div>
+                        <p class="shopping-card-description">The jewelry hub of Jaipur, famous for exquisite gold and silver jewelry adorned with precious gemstones. Specializes in traditional Kundan and Meenakari work that reflects royal Rajasthani craftsmanship.</p>
+                        
+                        <div class="shopping-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Location:</strong> Old Jaipur City
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <strong>Specialty:</strong> Kundan & Meenakari jewelry
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Timing:</strong> 10:00 AM - 8:00 PM
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-tag">₹2,000 – ₹50,000+</div>
+                    </div>
+                </div>
+
+                <!-- Bapu Bazaar -->
+                <div class="shopping-card">
+                    <div class="shopping-card-image">
+                        <img src="https://imgs.search.brave.com/MP2sshGuzuvD_WPR8jOvagRMzHPVB-0nt8u4OvdMflo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/cmFqYXN0aGFuYmh1/bWl0b3Vycy5jb20v/YmxvZy93cC1jb250/ZW50L3VwbG9hZHMv/MjAyNC8wOC9CYXB1/LUJhemFhci1KYWlw/dXJzLUJ1c3RsaW5n/LU1hcmtldHBsYWNl/LWZvci1BZmZvcmRh/YmxlLVNob3BwaW5n/LWFuZC1UcmFkaXRp/b25hbC1SYWphc3Ro/YW5pLUdvb2QtMTAy/NHg5NjAuanBn" alt="Bapu Bazaar">
+                    </div>
+                    <div class="shopping-card-content">
+                        <div class="shopping-card-header">
+                            <div class="shopping-icon">
+                                <i class="fas fa-tshirt"></i>
+                            </div>
+                            <h3 class="shopping-card-title">Bapu Bazaar <span class="city-tag">Jaipur</span></h3>
+                        </div>
+                        <p class="shopping-card-description">Famous for traditional Rajasthani textiles, Bandhani suits, and colorful Mojris (traditional footwear). A one-stop destination for authentic Rajasthani clothing and handicrafts at reasonable prices.</p>
+                        
+                        <div class="shopping-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Location:</strong> Near Hawa Mahal
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <strong>Specialty:</strong> Bandhani & Mojris
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <strong>Best for:</strong> Traditional clothing
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-tag">₹300 – ₹3,000</div>
+                    </div>
+                </div>
+
+                <!-- Hathi Pol Bazaar -->
+                <div class="shopping-card">
+                    <div class="shopping-card-image">
+                        <img src="https://imgs.search.brave.com/BUZbxxygVZsz-PWv27vNnm9npeUWOMaphL9sC72Ykac/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90cmlw/eGwuY29tL2Jsb2cv/d3AtY29udGVudC91/cGxvYWRzLzIwMjQv/MDkvSGF0aGktUG9s/LU1hcmtldC5qcGc" alt="Hathi Pol Bazaar">
+                    </div>
+                    <div class="shopping-card-content">
+                        <div class="shopping-card-header">
+                            <div class="shopping-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <h3 class="shopping-card-title">Hathi Pol Bazaar <span class="city-tag">Udaipur</span></h3>
+                        </div>
+                        <p class="shopping-card-description">Udaipur's artistic hub famous for miniature paintings, traditional Rajasthani artwork, and wooden handicrafts. The perfect place to buy authentic Mewar-style paintings and home decor items.</p>
+                        
+                        <div class="shopping-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Location:</strong> City Palace area
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <strong>Specialty:</strong> Miniature paintings
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-palette"></i>
+                                <div>
+                                    <strong>Art Style:</strong> Mewar tradition
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-tag">₹500 – ₹5,000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Udaipur Shopping Section -->
+    <section class="shopping-category">
+        <div class="container">
+            <div class="city-section">
+                <div class="city-header">
+                    <div class="city-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div>
+                        <h2>🌊 Udaipur – Art & Handicrafts</h2>
+                        <p>City of Lakes offering exquisite paintings and traditional crafts</p>
+                    </div>
+                </div>
+                
+                <div class="city-content">
+                    <!-- Hathi Pol Bazaar -->
+                    <div class="city-item">
+                        <div class="city-item-image">
+                            <img src="https://imgs.search.brave.com/QLZPzS2AAOQUrKFmOHtviuwYjpITAV8zAkFWGsktKBE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9oYmxp/bWcubW10Y2RuLmNv/bS9jb250ZW50L2h1/YmJsZS9pbWcvdWRh/aXB1ci9tbXQvYWN0/aXZpdGllcy9tX2Fj/dGl2aXRpZXNfaGF0/aGlfcG9sX2JhemFh/cl81X2xfMjg3XzQz/MC5qcGc" alt="Hathi Pol Bazaar">
+                        </div>
+                        <div class="city-item-content">
+                            <h3 class="city-item-title">Hathi Pol Bazaar</h3>
+                            <div class="city-item-details">
+                                <div class="city-detail-item">
+                                    <i class="fas fa-star"></i>
+                                    <div><strong>Famous for:</strong> Miniature paintings, wooden items</div>
+                                </div>
+                                <div class="city-detail-item">
+                                    <i class="fas fa-paint-brush"></i>
+                                    <div>Mewar style artwork</div>
+                                </div>
+                                <div class="city-detail-item">
+                                    <i class="fas fa-rupee-sign"></i>
+                                    <div>Paintings: ₹500 – ₹5,000</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bada Bazaar -->
+                    <div class="city-item">
+                        <div class="city-item-image">
+                            <img src="https://imgs.search.brave.com/k7Zx2-dN_uEVS2HG0T1nzXmwRBeKiwLeWRGoPgaECFI/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjAw/MjczMjI5LTAwMS9w/aG90by9pbmRpYS1y/YWphc3RoYW4tamFp/cHVyLXRyYWZmaWMt/aW4tam9oYXJpLWJh/emFhci5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9OXJsZzVj/c2hyU0Z3MzUxMlVE/TnJJejJETXJIdFdY/eGQ5cXotTGNnX0c3/QT0" alt="Bada Bazaar">
+                        </div>
+                        <div class="city-item-content">
+                            <h3 class="city-item-title">Bada Bazaar</h3>
+                            <div class="city-item-details">
+                                <div class="city-detail-item">
+                                    <i class="fas fa-star"></i>
+                                    <div><strong>Famous for:</strong> Handicrafts, silver jewelry, textiles</div>
+                                </div>
+                                <div class="city-detail-item">
+                                    <i class="fas fa-gifts"></i>
+                                    <div>Traditional souvenirs</div>
+                                </div>
+                                <div class="city-detail-item">
+                                    <i class="fas fa-rupee-sign"></i>
+                                    <div>Souvenirs: ₹300 – ₹3,000</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Tips Card -->
+    <section class="shopping-category">
+        <div class="container">
+            <div class="shopping-tips-card">
+                <div class="tips-header">
+                    <div class="tips-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div>
+                        <h2>Rajasthani Shopping Tips & Guide</h2>
+                    </div>
+                </div>
+                <div class="tips-content">
+                    <div class="tips-image">
+                        <img src="https://imgs.search.brave.com/V9fshSKZlx0dXxBhAKayCIysJPXcaMxbAi63PA4VQaM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMudHJhdmVsdHJp/YW5nbGUuY29tL2Js/b2cvd3AtY29udGVu/dC91cGxvYWRzLzIw/MjMvMDMvU29qYXRp/LUdhdGUtTWFya2V0/LmpwZw" alt="Shopping Tips">
+                    </div>
+                    <div class="tips-details">
+                        <h3>Smart Shopping in Rajasthan</h3>
+                        <p>Make the most of your shopping experience in Rajasthan with these essential tips:</p>
+                        <div class="tips-list">
+                            <ul>
+                                <li><span class="tip-name">Bargaining is Expected:</span> <span class="tip-desc">Start at 40-50% of quoted price</span></li>
+                                <li><span class="tip-name">Best Time to Shop:</span> <span class="tip-desc">Morning hours (10 AM - 1 PM)</span></li>
+                                <li><span class="tip-name">Carry Cash:</span> <span class="tip-desc">Many shops don't accept cards</span></li>
+                                <li><span class="tip-name">Check Authenticity:</span> <span class="tip-desc">Look for handmade signs</span></li>
+                                <li><span class="tip-name">Local Guides:</span> <span class="tip-desc">Helpful for finding best shops</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What to Buy in Rajasthan -->
+            <div class="category-header">
+                <h2><i class="fas fa-gifts"></i> TOP RAJASTHAN SOUVENIRS</h2>
+                <p class="category-tagline">Traditional crafts and products that make perfect souvenirs</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <h4><i class="fas fa-gem"></i> Jewelry & Gemstones</h4>
+                    <p><strong>Kundan Jewelry:</strong> Traditional gemstone setting</p>
+                    <p><strong>Meenakari:</strong> Enamel work on silver/gold</p>
+                    <p><strong>Lac Bangles:</strong> Colorful traditional bangles</p>
+                    <p><strong>Silver Jewelry:</strong> Tribal and contemporary designs</p>
+                </div>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-tshirt"></i> Textiles & Clothing</h4>
+                    <p><strong>Bandhani:</strong> Tie-dye textiles from Jodhpur</p>
+                    <p><strong>Block Print:</strong> Traditional hand-block printing</p>
+                    <p><strong>Mojris:</strong> Embroidered leather footwear</p>
+                    <p><strong>Pashmina Shawls:</strong> Fine woolen shawls</p>
+                </div>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-home"></i> Handicrafts & Decor</h4>
+                    <p><strong>Blue Pottery:</strong> Jaipur's unique craft</p>
+                    <p><strong>Marble Items:</strong> Statues and home decor</p>
+                    <p><strong>Wooden Furniture:</strong> Carved traditional furniture</p>
+                    <p><strong>Metalware:</strong> Brass and copper items</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More City Shopping -->
+    <section class="shopping-category">
+        <div class="container">
+            <!-- Jodhpur Shopping -->
+            <div class="city-section">
+                <div class="city-header">
+                    <div class="city-icon">
+                        <i class="fas fa-pepper-hot"></i>
+                    </div>
+                    <div>
+                        <h2>🔵 Jodhpur – Traditional Crafts</h2>
+                        <p>Blue City's markets for spices, textiles, and traditional footwear</p>
+                    </div>
+                </div>
+                
+                <div class="city-content">
+                    <!-- Clock Tower Market -->
+                    <div class="city-item">
+                        <div class="city-item-image">
+                            <img src="https://imgs.search.brave.com/Z783U8vhTAoXTi9dklDIbmT1IQkUXo-hZrQv64Mz6Y0/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/cmFqYXN0aGFuZHJp/dmVyLmNvbS9pbWcv/YXR0cmFjdGlvbnMv/NjY3eDQ0NV9vbGQt/Y2l0eS1jbG9jay10/b3dlci1tYXJrZXQt/am9kaHB1ci0yLmpw/Zw" alt="Clock Tower Market">
+                        </div>
+                        <div class="city-item-content">
+                            <h3 class="city-item-title">Clock Tower Market</h3>
+                            <div class="city-item-details">
+                                <div class="city-detail-item">
+                                    <i class="fas fa-star"></i>
+                                    <div><strong>Famous for:</strong> Spices, handicrafts, antiques</div>
+                                </div>
+                                <div class="city-detail-item">
+                                    <i class="fas fa-pepper-hot"></i>
+                                    <div>Aromatic spices & brass items</div>
+                                </div>
+                                <div class="city-detail-item">
+                                    <i class="fas fa-rupee-sign"></i>
+                                    <div>Spices & decor: ₹200 – ₹2,500</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Nai Sarak -->
+                    <div class="city-item">
+                        <div class="city-item-image">
+                            <img src="https://imgs.search.brave.com/GRJBHKYKkKSvU70TYbkoe2s1fiYGlzll1CuMF32iHEg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jb250/ZW50LmpkbWFnaWNi/b3guY29tL3YyL2Nv/bXAvam9kaHB1ci9k/My8wMjkxcHgyOTEu/eDI5MS4xNTA0MTAx/MTQzNDQuZDNkMy9j/YXRhbG9ndWUvc2Fu/a2xlY2hhLWhhbmQt/bG9vbS1uYWktc2Fy/YWstam9kaHB1ci1o/YW5kbG9vbS1mYWJy/aWMtcmV0YWlsZXJz/LTIwVE1DaXpRTnIt/MjUwLmpwZz93PTY0/MCZxPTc1" alt="Nai Sarak">
+                        </div>
+                        <div class="city-item-content">
+                            <h3 class="city-item-title">Nai Sarak</h3>
+                            <div class="city-item-details">
+                                <div class="city-detail-item">
+                                    <i class="fas fa-star"></i>
+                                    <div><strong>Famous for:</strong> Mojris, textiles</div>
+                                </div>
+                                <div class="city-detail-item">
+                                    <i class="fas fa-shoe-prints"></i>
+                                    <div>Traditional footwear</div>
+                                </div>
+                                <div class="city-detail-item">
+                                    <i class="fas fa-rupee-sign"></i>
+                                    <div>Mojris: ₹500 – ₹2,000</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shopping Planning -->
+            <div class="shopping-planning">
+                <h3><i class="fas fa-map-signs"></i> Shopping Itinerary Planning</h3>
+                <div class="planning-grid">
+                    <div class="planning-item">
+                        <h5>📍 3-Day Shopping Tour</h5>
+                        <p>• Day 1: Jaipur (Johari, Bapu, Tripolia Bazaars)</p>
+                        <p>• Day 2: Jodhpur (Clock Tower, Nai Sarak)</p>
+                        <p>• Day 3: Udaipur (Hathi Pol, Bada Bazaar)</p>
+                        <p>• Optional: Jaisalmer for leather items</p>
+                    </div>
+                    <div class="planning-item">
+                        <h5>🛍️ Budget Planning</h5>
+                        <p>• Budget: ₹5,000-10,000 (souvenirs)</p>
+                        <p>• Mid-range: ₹10,000-25,000 (with jewelry)</p>
+                        <p>• Luxury: ₹25,000+ (gemstones, carpets)</p>
+                        <p>• Carry extra for shipping costs</p>
+                    </div>
+                    <div class="planning-item">
+                        <h5>📦 Shipping & Customs</h5>
+                        <p>• Major shops offer shipping</p>
+                        <p>• Get certificates for gemstones</p>
+                        <p>• Check customs regulations</p>
+                        <p>• Insure valuable purchases</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back Button -->
+            <div class="back-to-home">
+                <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>RajasthanTour</h3>
+                    <p>Discover the majestic land of kings - Rajasthan. Explore royal heritage, vibrant culture, and breathtaking landscapes.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="cities.html">Cities</a></li>
+                        <li><a href="forts.html">Forts & Palaces</a></li>
+                        <li><a href="temples.html">Temples</a></li>
+                        <li><a href="culture.html">Culture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>More Links</h4>
+                    <ul>
+                        <li><a href="adventure.html">Adventure</a></li>
+                        <li><a href="food.html">Food</a></li>
+                        <li><a href="hotels.html">Hotels</a></li>
+                        <li><a href="shopping.html" class="active">Shopping</a></li>
+                        <li><a href="festivals.html">Festivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Jaipur, Rajasthan, India</li>
+                        <li><i class="fas fa-phone"></i> +91 123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@rajasthantour.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RajasthanTour. All rights reserved. | Designed with <i class="fas fa-heart"></i> for Rajasthan</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.shopping-card, .info-box, .shopping-tips-card, .city-item, .city-section, .shopping-planning').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
