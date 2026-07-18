@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Tourism in Rajasthan - Sky, Land & Desert Adventures</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logo span {
+            color: #b8860b;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #b8860b;
+            background: rgba(184, 134, 11, 0.1);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* Adventure Hero Section */
+        .adventure-hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://imgs.search.brave.com/_-1WxablERQ7FB46fw9i0Haeh5e61dbWEh4rHwVzOt8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9pbmRpYS10b3Vy/LXJhamFzdGhhbi1j/YW1lbC13aXRoLXRl/bXBsZS1iYWNrZ3Jv/dW5kLWltYWdlXzg1/MzE2My00ODYyMi5q/cGc_c2VtdD1haXNf/aHlicmlkJnc9NzQw/JnE9ODA');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .adventure-hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 1s ease;
+        }
+        
+        .adventure-hero-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #ffd700;
+            font-weight: 600;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+        
+        .adventure-hero-content p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+        
+        .adventure-hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 1s both;
+        }
+        
+        .hero-tag {
+            background: rgba(184, 134, 11, 0.9);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Adventure Categories */
+        .adventure-category {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .adventure-category:nth-child(even) {
+            background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
+        }
+        
+        .category-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .category-header h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .category-header h2:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #b8860b, #daa520);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .category-tagline {
+            font-size: 1.2rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 1.5rem;
+        }
+        
+        /* Adventure Cards Grid */
+        .adventure-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .adventure-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            height: 100%;
+        }
+        
+        .adventure-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .adventure-card-image {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .adventure-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .adventure-card:hover .adventure-card-image img {
+            transform: scale(1.1);
+        }
+        
+        .adventure-card-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(184, 134, 11, 0.95);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .adventure-card-content {
+            padding: 1.8rem;
+        }
+        
+        .adventure-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .adventure-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #b8860b, #daa520);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .adventure-card-title {
+            font-size: 1.5rem;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .adventure-card-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .adventure-details {
+            margin: 1.5rem 0;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+        }
+        
+        .detail-item i {
+            color: #b8860b;
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .price-tag {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #333;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: inline-block;
+            margin-top: 1rem;
+            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        /* Adventure CTA */
+        .adventure-cta {
+            background: linear-gradient(135deg, #b8860b 0%, #daa520 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .adventure-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .adventure-cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-cta {
+            background: white;
+            color: #b8860b;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            background: #333;
+            color: white;
+        }
+        
+        .btn-cta.secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-cta.secondary:hover {
+            background: white;
+            color: #b8860b;
+        }
+        
+        /* Footer Styles */
+        .footer {
+            background: #333;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            color: #b8860b;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-section p {
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #b8860b;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.8rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #b8860b;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+        }
+
+        .footer-bottom i {
+            color: #ff6b6b;
+            margin: 0 5px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .adventure-hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .adventure-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+                gap: 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 1rem 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .adventure-hero {
+                height: 60vh;
+                margin-top: 70px;
+            }
+            
+            .adventure-hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .adventure-hero-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .adventure-hero-tags {
+                gap: 1rem;
+            }
+            
+            .hero-tag {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .category-header h2 {
+                font-size: 2rem;
+            }
+            
+            .adventure-cta h2 {
+                font-size: 2rem;
+            }
+            
+            .btn-cta {
+                padding: 0.8rem 1.8rem;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .adventure-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .adventure-card {
+                max-width: 100%;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-cta {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Rajasthan<span>Tour</span></a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cities.html">Cities</a></li>
+                <li><a href="forts.html">Forts & Palaces</a></li>
+                <li><a href="temples.html">Temples</a></li>
+                <li><a href="culture.html">Culture</a></li>
+                <li><a href="adventure.html" class="active">Adventure</a></li>
+                <li><a href="food.html">Food</a></li>
+                <li><a href="hotels.html">Hotels</a></li>
+                <li><a href="shopping.html">Shopping</a></li>
+                <li><a href="festivals.html">Festivals</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Adventure Hero Section -->
+    <section class="adventure-hero">
+        <div class="container adventure-hero-content">
+            <h1>ADVENTURE TOURISM IN RAJASTHAN</h1>
+            <h2>Sky • Land • Water • Desert Adventures</h2>
+            <p>Experience thrilling adventures in the majestic landscapes of Rajasthan. From golden deserts to royal forts, get ready for adrenaline-pumping activities that will make your trip unforgettable.</p>
+            <div class="adventure-hero-tags">
+                <div class="hero-tag"><i class="fas fa-sun"></i> Desert Adventures</div>
+                <div class="hero-tag"><i class="fas fa-cloud"></i> Sky Adventures</div>
+                <div class="hero-tag"><i class="fas fa-mountain"></i> Land Adventures</div>
+                <div class="hero-tag"><i class="fas fa-water"></i> Water Adventures</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Desert Adventures Section -->
+    <section class="adventure-category">
+        <div class="container">
+            <div class="category-header">
+                <h2><i class="fas fa-sun"></i> DESERT ADVENTURES</h2>
+                <p class="category-tagline">Rajasthan ki pehchaan - Experience the golden sands like never before</p>
+            </div>
+            
+            <div class="adventure-grid">
+                <!-- Camel Safari -->
+                <div class="adventure-card">
+                    <div class="adventure-card-image">
+                        <img src="https://imgs.search.brave.com/rrv36RWXBjHqfDSxYp8Nht2YFO5IO9aDPl0_FjYRyKU/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMudHJhdmVsdHJp/YW5nbGUuY29tL2Js/b2cvd3AtY29udGVu/dC91cGxvYWRzLzIw/MjAvMDEvSGFsZi1E/YXktU3VucmlzZS1D/YW1lbC1TYWZhcmkt/SW4tSmFpc2FsbWVy/XzEzdGgtamFuLmpw/Zw" alt="Camel Safari">
+                        <div class="adventure-card-badge">Most Popular</div>
+                    </div>
+                    <div class="adventure-card-content">
+                        <div class="adventure-card-header">
+                            <div class="adventure-icon">
+                                <i class="fas fa-horse-head"></i>
+                            </div>
+                            <h3 class="adventure-card-title">Camel Safari</h3>
+                        </div>
+                        <p class="adventure-card-description">Traditional desert exploration on the ship of the desert with breathtaking sunset views over sand dunes.</p>
+                        
+                        <div class="adventure-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Locations:</strong> Jaisalmer, Bikaner, Pushkar
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <strong>Experience:</strong> Sand dunes par camel ride + sunset view
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Duration:</strong> 1-2 hours (sunset/sunrise options)
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-tag">₹800 – ₹1500</div>
+                    </div>
+                </div>
+                
+                <!-- Desert Jeep Safari -->
+                <div class="adventure-card">
+                    <div class="adventure-card-image">
+                        <img src="https://imgs.search.brave.com/7aOMtOM947O4mPfzvMlKWu4RDCENnyOm5mFtwunt2qg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9kaGFu/bmFyYW1raWRoYW5p/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyNC8xMi9qZWVw/LTMtMS03Njh4NTc2/LmpwZWc" alt="Desert Jeep Safari">
+                    </div>
+                    <div class="adventure-card-content">
+                        <div class="adventure-card-header">
+                            <div class="adventure-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <h3 class="adventure-card-title">Desert Jeep Safari</h3>
+                        </div>
+                        <p class="adventure-card-description">Fast and thrilling 4x4 ride over sand dunes with adrenaline-pumping drops and turns.</p>
+                        
+                        <div class="adventure-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Location:</strong> Sam Sand Dunes (Jaisalmer)
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <strong>Experience:</strong> High-speed dune bashing adventure
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <strong>Group Size:</strong> 4-6 people per jeep
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-tag">₹1500 – ₹3000</div>
+                    </div>
+                </div>
+                
+                <!-- Desert Camping -->
+                <div class="adventure-card">
+                    <div class="adventure-card-image">
+                        <img src="https://imgs.search.brave.com/8hQgNhKDBFzQWqmLHGRYHWA-Sw70UgcCzwgbIPiJpB8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA1LzgxLzY3Lzcz/LzM2MF9GXzU4MTY3/NzM3MV9yTnc5WVQw/cmVLWnh5dGJJN2NK/YU9lMzFkalFDN0p4/WS5qcGc" alt="Desert Camping">
+                        <div class="adventure-card-badge">Cultural Night</div>
+                    </div>
+                    <div class="adventure-card-content">
+                        <div class="adventure-card-header">
+                            <div class="adventure-icon">
+                                <i class="fas fa-campground"></i>
+                            </div>
+                            <h3 class="adventure-card-title">Desert Camping</h3>
+                        </div>
+                        <p class="adventure-card-description">Overnight cultural experience with folk dance, music, bonfire and traditional Rajasthani dinner under the stars.</p>
+                        
+                        <div class="adventure-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Location:</strong> Jaisalmer Desert
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <strong>Experience:</strong> Folk dance, music, bonfire + night stay
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-utensils"></i>
+                                <div>
+                                    <strong>Includes:</strong> Dinner & breakfast, cultural show
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-tag">₹2500 – ₹6000</div>
+                    </div>
+                </div>
+                
+                <!-- Quad Biking -->
+                <div class="adventure-card">
+                    <div class="adventure-card-image">
+                        <img src="https://imgs.search.brave.com/36jCIaxpB5nk6QizAl_o4x9K30vZRLHOPURNsYX6-Vk/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/c2h1dHRlcnN0b2Nr/LmNvbS9pbWFnZS1w/aG90by9wZXJzb24t/cmlkaW5nLWF0di1z/YW5kLWR1bmVzLTI2/MG53LTE5MzMwNjY0/MzMuanBn" alt="Quad Biking">
+                    </div>
+                    <div class="adventure-card-content">
+                        <div class="adventure-card-header">
+                            <div class="adventure-icon">
+                                <i class="fas fa-motorcycle"></i>
+                            </div>
+                            <h3 class="adventure-card-title">Quad Biking (ATV Ride)</h3>
+                        </div>
+                        <p class="adventure-card-description">Exciting ATV bike riding on sand dunes with professional guidance and safety equipment.</p>
+                        
+                        <div class="adventure-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Location:</strong> Jaisalmer Desert
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <strong>Experience:</strong> Bike riding on sand dunes
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <strong>Safety:</strong> Helmets and training provided
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-tag">₹1000 – ₹2000</div>
+                    </div>
+                </div>
+                
+                <!-- Jungle Safari (Moved from Wildlife section) -->
+                <div class="adventure-card">
+                    <div class="adventure-card-image">
+                        <img src="https://imgs.search.brave.com/Ks__cZaznPdgOEfzgJ2t286ICEyAUBU5iijdLbfCDh4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93YW5k/ZXJvbi1pbWFnZXMu/Z3VtbGV0LmlvL2Js/b2dzL25ldy8yMDI0/LzAxL2dmdXlmZ2hn/ay5qcGc" alt="Jungle Safari">
+                        <div class="adventure-card-badge">Wildlife Spotting</div>
+                    </div>
+                    <div class="adventure-card-content">
+                        <div class="adventure-card-header">
+                            <div class="adventure-icon">
+                                <i class="fas fa-tree"></i>
+                            </div>
+                            <h3 class="adventure-card-title">Jungle Safari</h3>
+                        </div>
+                        <p class="adventure-card-description">Explore the wilderness of Rajasthan's national parks in search of tigers, leopards, and other wildlife.</p>
+                        
+                        <div class="adventure-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Location:</strong> Ranthambore National Park
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <strong>Experience:</strong> Tiger spotting + forest safari
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-car-side"></i>
+                                <div>
+                                    <strong>Vehicle:</strong> Open gypsy or cantor
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-tag">₹1500 – ₹3000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sky Adventures Section -->
+    <section class="adventure-category">
+        <div class="container">
+            <div class="category-header">
+                <h2><i class="fas fa-cloud"></i> SKY ADVENTURES</h2>
+                <p class="category-tagline">Upar se Rajasthan dekho 😍 - Bird's eye view of majestic forts and palaces</p>
+            </div>
+            
+            <div class="adventure-grid">
+                <!-- Hot Air Balloon -->
+                <div class="adventure-card">
+                    <div class="adventure-card-image">
+                        <img src="https://imgs.search.brave.com/6u_qNUgOnpi8Tdxt85JTHB6Yyeutw_tFz_1XZf82p4Y/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/c2h1dHRlcnN0b2Nr/LmNvbS9pbWFnZS1w/aG90by9tZWhyYW5n/YXJoLWZvcnQtZHVy/aW5nLXN1bnJpc2Ut/am9kaHB1ci0yNjBu/dy0xMjQ4MjQzODY1/LmpwZw" alt="Hot Air Balloon">
+                        <div class="adventure-card-badge">Premium Experience</div>
+                    </div>
+                    <div class="adventure-card-content">
+                        <div class="adventure-card-header">
+                            <div class="adventure-icon">
+                                <i class="fas fa-hotdog"></i>
+                            </div>
+                            <h3 class="adventure-card-title">Hot Air Balloon Ride</h3>
+                        </div>
+                        <p class="adventure-card-description">Float peacefully above Rajasthan's landscape with breathtaking views of forts, palaces, and countryside.</p>
+                        
+                        <div class="adventure-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Locations:</strong> Jaipur, Pushkar
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <strong>Experience:</strong> Forts & palaces ka bird-eye view
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Duration:</strong> 60-90 minutes flight
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-tag">₹8000 – ₹12000</div>
+                    </div>
+                </div>
+                
+                <!-- Parasailing -->
+                <div class="adventure-card">
+                    <div class="adventure-card-image">
+                        <img src="https://imgs.search.brave.com/hsCdcVqVvkMJavSGGOq4QyA1UhqCtS0gO_wYrJcmtes/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMudHJhdmVsdHJp/YW5nbGUuY29tL2Js/b2cvd3AtY29udGVu/dC91cGxvYWRzLzIw/MTUvMDkvUGFyYXNh/aWxpbmctaW4tUmFq/YXN0aGFuLmpwZw" alt="Parasailing">
+                    </div>
+                    <div class="adventure-card-content">
+                        <div class="adventure-card-header">
+                            <div class="adventure-icon">
+                                <i class="fas fa-parachute-box"></i>
+                            </div>
+                            <h3 class="adventure-card-title">Parasailing</h3>
+                        </div>
+                        <p class="adventure-card-description">Experience the thrill of flying while being towed by a vehicle, enjoying panoramic views from above.</p>
+                        
+                        <div class="adventure-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Locations:</strong> Pushkar, Jaisalmer
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <strong>Experience:</strong> Rope se bandhe hue sky flight
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-ruler-vertical"></i>
+                                <div>
+                                    <strong>Height:</strong> Up to 150 feet above ground
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-tag">₹2500 – ₹4000</div>
+                    </div>
+                </div>
+                
+                <!-- Paragliding -->
+                <div class="adventure-card">
+                    <div class="adventure-card-image">
+                        <img src="https://imgs.search.brave.com/S3nQXSDXz7YqzKILScG9QQyVAvecW794PNspCovSsgQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9w/ZW9wbGUtcG93ZXJl/ZC1wYXJhZ2xpZGlu/Zy1za3lfMTgxNjI0/LTM5MjYyLmpwZz9z/ZW10PWFpc19oeWJy/aWQmdz03NDAmcT04/MA" alt="Paragliding">
+                    </div>
+                    <div class="adventure-card-content">
+                        <div class="adventure-card-header">
+                            <div class="adventure-icon">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                            <h3 class="adventure-card-title">Paragliding</h3>
+                        </div>
+                        <p class="adventure-card-description">Free flight experience with a certified instructor, soaring like a bird over Rajasthan's landscapes.</p>
+                        
+                        <div class="adventure-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Locations:</strong> Jaisalmer, Jaipur outskirts
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <strong>Experience:</strong> Open sky me smooth flying experience
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-user-check"></i>
+                                <div>
+                                    <strong>Type:</strong> Tandem flight with instructor
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-tag">₹3000 – ₹5000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Land Adventures Section -->
+    <section class="adventure-category">
+        <div class="container">
+            <div class="category-header">
+                <h2><i class="fas fa-mountain"></i> LAND ADVENTURES</h2>
+                <p class="category-tagline">Thrill & Fun - Explore Rajasthan's terrain with exciting ground activities</p>
+            </div>
+            
+            <div class="adventure-grid">
+                <!-- Zipline -->
+                <div class="adventure-card">
+                    <div class="adventure-card-image">
+                        <img src="https://imgs.search.brave.com/KgbaR6Ma5t_gt7-ChGl4VEaPIRMpZnvH3iEeHMGRqYU/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMyLnRyaXBvdG8u/Y29tL21lZGlhL2Zp/bHRlci9ubC9pbWcv/NTE4NDA3L1RyaXBE/b2N1bWVudC8xNTIw/MTY5MjMyX3ppcGxp/bmluZ19qb2RocHVy/LmpwZy53ZWJw" alt="Zipline">
+                        <div class="adventure-card-badge">Thrilling</div>
+                    </div>
+                    <div class="adventure-card-content">
+                        <div class="adventure-card-header">
+                            <div class="adventure-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3 class="adventure-card-title">Zipline (Flying Fox)</h3>
+                        </div>
+                        <p class="adventure-card-description">Fly like a superhero over historical forts and valleys on a high-speed zipline adventure.</p>
+                        
+                        <div class="adventure-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Locations:</strong> Jodhpur (Mehrangarh Fort), Jaipur (Neemrana)
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <strong>Experience:</strong> Fort ke upar se rope slide
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-ruler"></i>
+                                <div>
+                                    <strong>Length:</strong> Up to 300 meters zipline
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-tag">₹1500 – ₹2500</div>
+                    </div>
+                </div>
+                
+                <!-- Rock Climbing -->
+                <div class="adventure-card">
+                    <div class="adventure-card-image">
+                        <img src="https://imgs.search.brave.com/R4cDC3LpyqklcyXTMtBPd7odfBvfxI6oBbVnU6I_L5E/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAwLzgyLzU5Lzgx/LzM2MF9GXzgyNTk4/MTg2XzM1MEZweEZ5/OGw1STEzNWZLd2Jn/NDhPamlNQTNFd3M4/LmpwZw
+                        " alt="Rock Climbing">
+                    </div>
+                    <div class="adventure-card-content">
+                        <div class="adventure-card-header">
+                            <div class="adventure-icon">
+                                <i class="fas fa-mountain"></i>
+                            </div>
+                            <h3 class="adventure-card-title">Rock Climbing</h3>
+                        </div>
+                        <p class="adventure-card-description">Scale natural rock formations with professional guidance and safety equipment in scenic locations.</p>
+                        
+                        <div class="adventure-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Locations:</strong> Mount Abu, Jodhpur region
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <strong>Experience:</strong> Natural rocks par climbing
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <div>
+                                    <strong>Training:</strong> Beginner to advanced levels
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-tag">₹1000 – ₹2000</div>
+                    </div>
+                </div>
+                
+                <!-- Cycling Tours -->
+                <div class="adventure-card">
+                    <div class="adventure-card-image">
+                        <img src="https://imgs.search.brave.com/cnBzHyZUYrlcSRy-3v7y8rMzVKlhxwCzAj2oBmV8TQU/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9sZXRv/dXJkZWluZGlhLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAx/Ny8wOC9QaWNzYXJ0/XzI1LTAxLTE5XzE0/LTI5LTA4LTc4Ny1z/Y2FsZWQuanBn" alt="Cycling Tours">
+                    </div>
+                    <div class="adventure-card-content">
+                        <div class="adventure-card-header">
+                            <div class="adventure-icon">
+                                <i class="fas fa-bicycle"></i>
+                            </div>
+                            <h3 class="adventure-card-title">Cycling Tours</h3>
+                        </div>
+                        <p class="adventure-card-description">Explore heritage sites and rural villages on two wheels with guided cycling tours.</p>
+                        
+                        <div class="adventure-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Locations:</strong> Udaipur, Jaipur, Pushkar
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <strong>Experience:</strong> Heritage + village cycling
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-road"></i>
+                                <div>
+                                    <strong>Routes:</strong> City heritage, countryside, lakeside
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-tag">₹800 – ₹1500</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Water Adventures Section -->
+    <section class="adventure-category">
+        <div class="container">
+            <div class="category-header">
+                <h2><i class="fas fa-water"></i> WATER ADVENTURES</h2>
+                <p class="category-tagline">Limited but Fun - Enjoy aquatic activities in Rajasthan's beautiful lakes</p>
+            </div>
+            
+            <div class="adventure-grid">
+                <!-- Boating -->
+                <div class="adventure-card">
+                    <div class="adventure-card-image">
+                        <img src="https://imgs.search.brave.com/0sHw4QyNruD9tMPyio_MpxiKCOo_Wz4xYEMG4jaHJuE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zZWF3/YXRlcnNwb3J0cy5j/b20vaW1hZ2VzL2Fj/dGl2aXRpZXMvc2xp/ZGUvYm9hdGluZy1p/bi1yYWphc3RoYW4t/cGFja2FnZS5qcGc" alt="Boating">
+                        <div class="adventure-card-badge">Romantic</div>
+                    </div>
+                    <div class="adventure-card-content">
+                        <div class="adventure-card-header">
+                            <div class="adventure-icon">
+                                <i class="fas fa-ship"></i>
+                            </div>
+                            <h3 class="adventure-card-title">Boating</h3>
+                        </div>
+                        <p class="adventure-card-description">Leisurely boat rides on picturesque lakes with stunning views of palaces and heritage sites.</p>
+                        
+                        <div class="adventure-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Location:</strong> Udaipur (Lake Pichola)
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <strong>Experience:</strong> Lake ke beech palace views
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Duration:</strong> 30-60 minutes ride
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-tag">₹200 – ₹500</div>
+                    </div>
+                </div>
+                
+                <!-- Kayaking -->
+                <div class="adventure-card">
+                    <div class="adventure-card-image">
+                        <img src="https://imgs.search.brave.com/nPvXpIDcESyENM9qDZBo6UX8NcVDfzGXM4jrsxroewo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAxLzY3LzgyLzA3/LzM2MF9GXzE2Nzgy/MDc0M19UZTA0VUpX/NjlwRGZIQ1pDdWpU/dm4wWEVSQ2xhZWpj/eC5qcGc" alt="Kayaking">
+                    </div>
+                    <div class="adventure-card-content">
+                        <div class="adventure-card-header">
+                            <div class="adventure-icon">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <h3 class="adventure-card-title">Kayaking</h3>
+                        </div>
+                        <p class="adventure-card-description">Paddle through calm waters while enjoying the serene beauty of Rajasthan's lakes and surroundings.</p>
+                        
+                        <div class="adventure-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Location:</strong> Fateh Sagar Lake (Udaipur)
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <strong>Experience:</strong> Calm water adventure
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-user-friends"></i>
+                                <div>
+                                    <strong>Options:</strong> Single or double kayaks
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-tag">₹500 – ₹1000</div>
+                    </div>
+                </div>
+                
+                <!-- Water Parks -->
+                <div class="adventure-card">
+                    <div class="adventure-card-image">
+                        <img src="https://imgs.search.brave.com/emt0828zTgBzzZcXYFzemhkiWsoSeij48T2Zl5yH9ww/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YTEudGhyaWxsb3Bo/aWxpYS5jb20vZmls/ZXN0b3JlL3RtbHQw/ZWJiZ29yajltcGQx/ZjRoZjZmOGoydjRf/c2h1dHRlcnN0b2Nr/Xzk1MjA5ODg4Lmpw/Zz93PTE0NDAmZHBy/PTI" alt="Water Parks">
+                    </div>
+                    <div class="adventure-card-content">
+                        <div class="adventure-card-header">
+                            <div class="adventure-icon">
+                                <i class="fas fa-swimming-pool"></i>
+                            </div>
+                            <h3 class="adventure-card-title">Water Parks</h3>
+                        </div>
+                        <p class="adventure-card-description">Family fun with thrilling water slides, wave pools, and various aquatic attractions.</p>
+                        
+                        <div class="adventure-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Location:</strong> Jaipur
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <strong>Experience:</strong> Slides, pools & rides
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-child"></i>
+                                <div>
+                                    <strong>For:</strong> All age groups, family-friendly
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-tag">₹600 – ₹1200</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section
+    <section class="adventure-cta">
+        <div class="container">
+            <h2>Ready for Your Rajasthan Adventure?</h2>
+            <p>Book your thrilling adventure experiences today and create memories that will last a lifetime. Our expert guides ensure your safety while you enjoy the best of Rajasthan's adventure tourism.</p>
+            
+            <div class="cta-buttons">
+                <a href="#" class="btn-cta">
+                    <i class="fas fa-calendar-check"></i> Book Adventure Now
+                </a>
+                <a href="hotels.html" class="btn-cta secondary">
+                    <i class="fas fa-bed"></i> Find Adventure Stays
+                </a>
+                <a href="index.html#contact" class="btn-cta secondary">
+                    <i class="fas fa-phone-alt"></i> Contact for Custom Package
+                </a>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>RajasthanTour</h3>
+                    <p>Discover the majestic land of kings - Rajasthan. Explore royal heritage, vibrant culture, and breathtaking landscapes.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="cities.html">Cities</a></li>
+                        <li><a href="forts.html">Forts & Palaces</a></li>
+                        <li><a href="temples.html">Temples</a></li>
+                        <li><a href="culture.html">Culture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>More Links</h4>
+                    <ul>
+                        <li><a href="adventure.html">Adventure</a></li>
+                        <li><a href="food.html">Food</a></li>
+                        <li><a href="hotels.html">Hotels</a></li>
+                        <li><a href="shopping.html">Shopping</a></li>
+                        <li><a href="festivals.html">Festivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Jaipur, Rajasthan, India</li>
+                        <li><i class="fas fa-phone"></i> +91 123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@rajasthantour.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RajasthanTour. All rights reserved. | Designed with <i class="fas fa-heart"></i> for Rajasthan</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add active class to current page in navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+            
+            // Add animation on scroll for adventure cards
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe adventure cards for animation
+            document.querySelectorAll('.adventure-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

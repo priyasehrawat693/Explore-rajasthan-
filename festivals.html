@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajasthani Festivals - Land of Kings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ========== BASE STYLES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #D4AF37;
+            --secondary: #8B0000;
+            --dark: #1A1A1A;
+            --light: #F5F5F5;
+            --accent: #FF7F50;
+            --text: #333333;
+            --gray: #888888;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --festival-primary: #FF6B6B;
+            --festival-secondary: #4ECDC4;
+            --festival-light: #FFF9F0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--festival-light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--festival-primary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ========== NAVIGATION ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(26, 26, 26, 0.95);
+            padding: 15px 0;
+            transition: var(--transition);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-menu a {
+            color: white;
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after, .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: white;
+            transition: var(--transition);
+        }
+
+        /* ========== PAGE HEADER ========== */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            padding: 100px 0 50px;
+            margin-top: 60px;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* ========== PAGE CONTENT ========== */
+        .page-content {
+            padding: 50px 0;
+        }
+
+        /* Intro Box */
+        .intro-box {
+            background: linear-gradient(135deg, #f9f9f9, #fff);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-left: 5px solid var(--festival-primary);
+            box-shadow: var(--shadow);
+        }
+
+        .intro-box h2 {
+            color: var(--festival-primary);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .intro-box p {
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 30px;
+        }
+
+        .section-title i {
+            font-size: 2.2rem;
+            color: var(--festival-primary);
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--festival-primary), var(--festival-secondary));
+            border-radius: 2px;
+        }
+
+        /* Festival Grid */
+        .festival-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        /* Festival Card */
+        .festival-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-top: 4px solid var(--festival-primary);
+        }
+
+        .festival-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .festival-img {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .festival-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .festival-card:hover .festival-img img {
+            transform: scale(1.05);
+        }
+
+        .festival-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .festival-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--festival-primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .festival-location {
+            background-color: var(--festival-secondary);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .festival-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .festival-tag i {
+            color: var(--festival-primary);
+            font-size: 0.9rem;
+        }
+
+        .festival-desc {
+            color: var(--text);
+            margin: 12px 0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .festival-features {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .feature {
+            text-align: center;
+            flex: 1;
+        }
+
+        .feature i {
+            color: var(--festival-primary);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .feature span {
+            font-size: 0.8rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* Festival Details */
+        .festival-details {
+            background: #f8f8f8;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .festival-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--festival-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .festival-details h4 i {
+            color: var(--festival-primary);
+        }
+
+        .festival-details p {
+            margin-bottom: 10px;
+            color: var(--text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .attractions-list {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .attractions-list li {
+            padding: 5px 0;
+            color: var(--text);
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .attractions-list li:before {
+            content: "•";
+            color: var(--festival-primary);
+            position: absolute;
+            left: -15px;
+        }
+
+        /* Seasonal Guide */
+        .seasonal-section {
+            background: linear-gradient(rgba(255, 107, 107, 0.05), rgba(78, 205, 196, 0.05));
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+            border: 2px dashed var(--festival-secondary);
+        }
+
+        .seasonal-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .seasonal-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--festival-primary), var(--festival-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .seasonal-header h2 {
+            font-size: 2rem;
+            color: var(--festival-primary);
+            margin: 0;
+        }
+
+        .seasonal-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .seasonal-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .seasonal-item i {
+            color: var(--festival-secondary);
+            font-size: 1.5rem;
+            background: #E0F7FA;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .seasonal-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .seasonal-item p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Festival Guide */
+        .festival-guide {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin: 40px 0;
+            transition: var(--transition);
+        }
+
+        .festival-guide:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .guide-header {
+            background: linear-gradient(to right, var(--festival-primary), var(--festival-secondary));
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .guide-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .guide-header h2 {
+            font-size: 1.6rem;
+            color: white;
+            margin: 0;
+        }
+
+        .guide-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .guide-image {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .guide-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .festival-guide:hover .guide-image img {
+            transform: scale(1.05);
+        }
+
+        .guide-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .guide-details h3 {
+            font-size: 1.4rem;
+            color: var(--festival-primary);
+        }
+
+        /* Guide List */
+        .guide-list {
+            margin-top: 10px;
+        }
+
+        .guide-list ul {
+            margin-top: 10px;
+        }
+
+        .guide-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .guide-name {
+            font-weight: 600;
+            color: var(--text);
+            min-width: 180px;
+        }
+
+        .guide-desc {
+            color: var(--gray);
+            text-align: right;
+            flex: 1;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .info-box {
+            background: #f8f8f8;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid var(--festival-primary);
+            transition: var(--transition);
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--festival-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-box h4 i {
+            color: var(--festival-primary);
+        }
+
+        .info-box p {
+            margin-bottom: 10px;
+            color: var(--text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Festival Planning */
+        .info-box[style*="grid-column: 1/-1"] {
+            background: linear-gradient(135deg, #fff, #f9f9f9);
+            border-left: 5px solid var(--festival-primary);
+        }
+
+        .info-box h5 {
+            color: var(--festival-primary);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .info-box[style*="grid-column: 1/-1"] p {
+            margin-bottom: 8px;
+            padding-left: 5px;
+            position: relative;
+        }
+
+        .info-box[style*="grid-column: 1/-1"] p:before {
+            content: "•";
+            color: var(--festival-primary);
+            position: absolute;
+            left: -10px;
+        }
+
+        /* Back Button */
+        .back-to-home {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 25px;
+            background: linear-gradient(to right, var(--festival-primary), var(--festival-secondary));
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3, .footer-section h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary);
+        }
+
+        .footer-section p {
+            color: #bbb;
+            margin-bottom: 15px;
+            line-height: 1.7;
+            font-size: 0.9rem;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-section ul li a.active {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        .contact-info i {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom i {
+            color: #ff4757;
+        }
+
+        /* ========== RESPONSIVE STYLES ========== */
+        @media (max-width: 992px) {
+            .page-header h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .festival-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .guide-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .guide-image {
+                height: 250px;
+                order: 1;
+            }
+            
+            .guide-details {
+                order: 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--dark);
+                text-align: center;
+                transition: var(--transition);
+                padding: 15px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 12px 0;
+            }
+            
+            .page-header {
+                padding: 90px 0 40px;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .festival-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .festival-card {
+                max-width: 100%;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .seasonal-section {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 1.7rem;
+            }
+            
+            .page-header p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section-title i {
+                font-size: 1.8rem;
+            }
+            
+            .festival-info h3 {
+                font-size: 1.2rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .guide-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+                padding: 15px;
+            }
+            
+            .guide-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
+            .guide-header h2 {
+                font-size: 1.4rem;
+            }
+            
+            .guide-content {
+                padding: 20px;
+            }
+            
+            .festival-features {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .feature {
+                flex: none;
+                width: calc(50% - 10px);
+            }
+            
+            .back-btn {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .seasonal-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Rajasthan<span>Tour</span></a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cities.html">Cities</a></li>
+                <li><a href="forts.html">Forts & Palaces</a></li>
+                <li><a href="temples.html">Temples</a></li>
+                <li><a href="culture.html">Culture</a></li>
+                <li><a href="adventure.html">Adventure</a></li>
+                <li><a href="food.html">Food</a></li>
+                <li><a href="hotels.html">Hotels</a></li>
+                <li><a href="shopping.html">Shopping</a></li>
+                <li><a href="festivals.html" class="active">Festivals</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Rajasthani Festivals - Colors, Culture & Celebrations</h1>
+            <p>Experience the vibrant festivals of Rajasthan that showcase its rich cultural heritage, traditions, and royal splendor</p>
+        </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+        <div class="container">
+          
+
+            <!-- Major Festivals Grid -->
+            <div class="section-title">
+                <i class="fas fa-calendar-star"></i>
+                <h2>Major Festivals of Rajasthan</h2>
+            </div>
+
+            <div class="festival-grid">
+                <!-- Pushkar Camel Fair -->
+                <div class="festival-card">
+                    <div class="festival-img">
+                        <img src="https://imgs.search.brave.com/BCLHv3kUIvTQDVqUnHN9Fww24iZgloqoCPaMj8S5hTg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9yZXMu/Y2xvdWRpbmFyeS5j/b20vd2ViLWdsYXpl/L2ltYWdlL3VwbG9h/ZC92MTU2NDY1MDE3/OS9wdXNoa2FyLWNh/bWVsLWZhaXItdG91/ci1wYWNrYWdlc3Nz/LTIwMTkuanBn" alt="Pushkar Camel Fair">
+                    </div>
+                    <div class="festival-info">
+                        <h3>🐪 Pushkar Camel Fair <span class="festival-location">Pushkar</span></h3>
+                        <div class="festival-tag">
+                            <i class="fas fa-calendar-alt"></i>
+                            October – November
+                            <span style="margin-left: auto;"><i class="fas fa-camel"></i> World Famous</span>
+                        </div>
+                        <p class="festival-desc">One of the largest and most famous fairs in the world. Attracts tourists from across the globe with its vibrant display of Rajasthani culture, camel trading, and traditional competitions.</p>
+                        
+                        <!-- <div class="festival-details">
+                            <h4><i class="fas fa-star"></i> Main Attractions</h4>
+                            <ul class="attractions-list">
+                                <li>Buying and selling of camels</li>
+                                <li>Camel races & beauty contests</li>
+                                <li>Folk dance and music performances</li>
+                                <li>Local handicrafts and food stalls</li>
+                            </ul>
+                        </div> -->
+                        
+                        <div class="festival-features">
+                            <div class="feature">
+                                <i class="fas fa-camel"></i>
+                                <span>Camel Fair</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-globe"></i>
+                                <span>World Famous</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>₹200-500</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desert Festival -->
+                <div class="festival-card">
+                    <div class="festival-img">
+                        <img src="https://imgs.search.brave.com/u5E9O-49Kc4D_Zp_-hZTXCQEGc21Sb0LviFPc7DiF9Y/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvOTY3/NDg0MTgwL3Bob3Rv/L2luZGUtcmFqYXN0/aGFuLXJlZ2lvbi1k/dS1tYXJ3YXItamFp/c2FsbWVyLWZlc3Rp/dmFsLWR1LWRlc2Vy/dC1jb21wZXRpdGlv/bi1kZS1kZWNvcmF0/aW9uLWRlcy5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9SlF4/WXVyT2NUZzhOVmdU/Q1Vfc0s2QnZQWE1k/MFJPbVRsaVpQd29R/Q0NWWT0" alt="Desert Festival">
+                    </div>
+                    <div class="festival-info">
+                        <h3>🌵 Desert Festival <span class="festival-location">Jaisalmer</span></h3>
+                        <div class="festival-tag">
+                            <i class="fas fa-calendar-alt"></i>
+                            February
+                            <span style="margin-left: auto;"><i class="fas fa-sun"></i> Desert Culture</span>
+                        </div>
+                        <p class="festival-desc">Celebrates the rich desert culture of Rajasthan against the golden sand dunes. A spectacular showcase of traditional music, dance, and desert sports in the Thar Desert.</p>
+                        
+                        <!-- <div class="festival-details">
+                            <h4><i class="fas fa-star"></i> Main Attractions</h4>
+                            <ul class="attractions-list">
+                                <li>Kalbelia and folk dances</li>
+                                <li>Camel races & turban tying competitions</li>
+                                <li>Traditional music & cultural programs</li>
+                                <li>Evening performances on sand dunes</li>
+                            </ul>
+                        </div> -->
+                        
+                        <div class="festival-features">
+                            <div class="feature">
+                                <i class="fas fa-sun"></i>
+                                <span>Desert Festival</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-music"></i>
+                                <span>Folk Performances</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>₹200-500</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gangaur Festival -->
+                <div class="festival-card">
+                    <div class="festival-img">
+                        <img src="https://imgs.search.brave.com/F5cQOy1kkE14l7UbaFCcjkQ3h8tShUJxJr_iqRjdbk4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2JmLzYz/Lzg0L2JmNjM4NDA3/NTAwYmEzMGM0Y2I3/OGY3NGM3MjZjYmVk/LmpwZw" alt="Gangaur Festival">
+                    </div>
+                    <div class="festival-info">
+                        <h3>🌸 Gangaur Festival <span class="festival-location">Jaipur, Udaipur, Jodhpur</span></h3>
+                        <div class="festival-tag">
+                            <i class="fas fa-calendar-alt"></i>
+                            March – April
+                            <span style="margin-left: auto;"><i class="fas fa-female"></i> Women's Festival</span>
+                        </div>
+                        <p class="festival-desc">Dedicated to Goddess Gauri, symbol of marital happiness and prosperity. Celebrated with great enthusiasm by women across Rajasthan with colorful processions and rituals.</p>
+                        
+                        <!-- <div class="festival-details">
+                            <h4><i class="fas fa-star"></i> Main Attractions</h4>
+                            <ul class="attractions-list">
+                                <li>Decorated idols of Goddess Gauri</li>
+                                <li>Grand street processions</li>
+                                <li>Women dressed in traditional attire</li>
+                                <li>Folk songs and rituals</li>
+                            </ul>
+                        </div> -->
+                        
+                        <div class="festival-features">
+                            <div class="feature">
+                                <i class="fas fa-female"></i>
+                                <span>Women's Festival</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-pray"></i>
+                                <span>Religious</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>Free Entry</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teej Festival -->
+                <div class="festival-card">
+                    <div class="festival-img">
+                        <img src="https://imgs.search.brave.com/kXoJgcW6ZP-O0hnu7q64Z3TtUw9zz_c5943N8e7kUeA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/cmFqYXN0aGFuZHJp/dmVyLmNvbS9pbWcv/dHJhdmVsLWluZm8v/NjY3eDQ0NV9mZXN0/aXZhbHMtcmFqYXN0/aGFuLXRlZWouanBn" alt="Teej Festival">
+                    </div>
+                    <div class="festival-info">
+                        <h3>🌼 Teej Festival <span class="festival-location">Jaipur & other cities</span></h3>
+                        <div class="festival-tag">
+                            <i class="fas fa-calendar-alt"></i>
+                            July – August (Monsoon)
+                            <span style="margin-left: auto;"><i class="fas fa-venus"></i> Women's Celebration</span>
+                        </div>
+                        <p class="festival-desc">Celebrates the union of Lord Shiva and Goddess Parvati, mainly celebrated by women. Features colorful processions, traditional swings, and women dressed in green attire.</p>
+                        
+                        <!-- <div class="festival-details">
+                            <h4><i class="fas fa-star"></i> Main Attractions</h4>
+                            <ul class="attractions-list">
+                                <li>Colorful processions</li>
+                                <li>Traditional swings & songs</li>
+                                <li>Green attire and mehndi ceremonies</li>
+                                <li>Sweets and local fairs</li>
+                            </ul>
+                        </div> -->
+                        
+                        <div class="festival-features">
+                            <div class="feature">
+                                <i class="fas fa-venus"></i>
+                                <span>Women's Festival</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-swimming-pool"></i>
+                                <span>Monsoon Festival</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>Free Entry</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mewar Festival -->
+                <div class="festival-card">
+                    <div class="festival-img">
+                        <img src="https://imgs.search.brave.com/2ph5_xOBU4Wo0-Xbajqhjnk3DTNzZArm5DYo2uYrpq0/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdG9y/YWdlLmdvb2dsZWFw/aXMuY29tL3N0YXRl/bGVzcy13d3ctanVz/dHdyYXZlbC1jb20v/MjAyNS8xMi8wNDQw/ODA2OC13b21lbi1j/ZWxlYnJhdGluZy1z/aGl2YS1wYXJ2YXRp/LWF0LWdhbmdhdXIt/Z2hhdC5qcGc" alt="Mewar Festival">
+                    </div>
+                    <div class="festival-info">
+                        <h3>🎭 Mewar Festival <span class="festival-location">Udaipur</span></h3>
+                        <div class="festival-tag">
+                            <i class="fas fa-calendar-alt"></i>
+                            March – April
+                            <span style="margin-left: auto;"><i class="fas fa-crown"></i> Royal Festival</span>
+                        </div>
+                        <p class="festival-desc">Marks the arrival of spring and showcases royal traditions of Udaipur. Features cultural performances near Lake Pichola, folk music, dances, and fireworks.</p>
+                        
+                        <!-- <div class="festival-details">
+                            <h4><i class="fas fa-star"></i> Main Attractions</h4>
+                            <ul class="attractions-list">
+                                <li>Cultural performances near Lake Pichola</li>
+                                <li>Folk music and dances</li>
+                                <li>Fireworks and royal celebrations</li>
+                            </ul>
+                        </div> -->
+                        
+                        <div class="festival-features">
+                            <div class="feature">
+                                <i class="fas fa-crown"></i>
+                                <span>Royal Festival</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-music"></i>
+                                <span>Cultural Shows</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>₹200-500</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Elephant Festival -->
+                <div class="festival-card">
+                    <div class="festival-img">
+                        <img src="https://imgs.search.brave.com/6iA21wK_-fT4KtpkVhEnO8xKZ8SMjna5GDsljaUD8TI/rs:fit:500:0:1:0/g:ce/aHR0cDovL3d3dy5l/eG90aWNpbmRpYWVz/Y2FwZXMuY29tL2lt/YWdlcy9mYWlyLWZl/c3RpdmFsLXJhamFz/dGhhbi9lbGVwaGFu/dDIuanBn" alt="Elephant Festival">
+                    </div>
+                    <div class="festival-info">
+                        <h3>🐘 Elephant Festival <span class="festival-location">Jaipur</span></h3>
+                        <div class="festival-tag">
+                            <i class="fas fa-calendar-alt"></i>
+                            March (around Holi)
+                            <span style="margin-left: auto;"><i class="fas fa-elephant"></i> Unique Festival</span>
+                        </div>
+                        <p class="festival-desc">Displays the royal heritage of Jaipur with beautifully decorated elephants. Features elephant parades, polo matches, and traditional Rajasthani cultural performances.</p>
+                        
+                        <!-- <div class="festival-details">
+                            <h4><i class="fas fa-star"></i> Main Attractions</h4>
+                            <ul class="attractions-list">
+                                <li>Decorated elephant parade</li>
+                                <li>Elephant polo and tug-of-war</li>
+                                <li>Cultural dance performances</li>
+                            </ul>
+                        </div>
+                         -->
+                        <div class="festival-features">
+                            <div class="feature">
+                                <i class="fas fa-elephant"></i>
+                                <span>Elephant Parade</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-horse-head"></i>
+                                <span>Animal Sports</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>Mostly Free</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seasonal Festival Guide -->
+            <div class="seasonal-section">
+                <div class="seasonal-header">
+                    <div class="seasonal-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div>
+                        <h2>Seasonal Festival Calendar</h2>
+                        <p>Plan your visit according to Rajasthan's festival seasons</p>
+                    </div>
+                </div>
+                
+                <div class="seasonal-content">
+                    <div class="seasonal-item">
+                        <i class="fas fa-snowflake"></i>
+                        <div>
+                            <h4>Winter Festivals (Oct-Feb)</h4>
+                            <p>Pushkar Camel Fair, Desert Festival, Kite Festival</p>
+                            <p>Best for: Cultural experiences, photography</p>
+                        </div>
+                    </div>
+                    <div class="seasonal-item">
+                        <i class="fas fa-seedling"></i>
+                        <div>
+                            <h4>Spring Festivals (Mar-Apr)</h4>
+                            <p>Gangaur, Mewar Festival, Elephant Festival, Holi</p>
+                            <p>Best for: Colorful celebrations, traditional rituals</p>
+                        </div>
+                    </div>
+                    <div class="seasonal-item">
+                        <i class="fas fa-cloud-rain"></i>
+                        <div>
+                            <h4>Monsoon Festivals (Jul-Aug)</h4>
+                            <p>Teej Festival, Raksha Bandhan celebrations</p>
+                            <p>Best for: Women's festivals, religious ceremonies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Festivals Grid -->
+            <div class="festival-grid">
+                <!-- Brij Holi -->
+                <div class="festival-card">
+                    <div class="festival-img">
+                        <img src="https://imgs.search.brave.com/YUw-s1WjdgbEsUTh23CaK6iYDe8zEOB9-SA0qpXJ2nQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/cmFqYXN0aGFudG91/cnNpbmRpYS5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMjUv/MDEvS29kYS1NYWFy/LUhvbGktJUUyJTgw/JTkzLUJoaWx3YXJh/LmpwZw" alt="Brij Holi">
+                    </div>
+                    <div class="festival-info">
+                        <h3>🎨 Brij Holi <span class="festival-location">Bharatpur Region</span></h3>
+                        <div class="festival-tag">
+                            <i class="fas fa-calendar-alt"></i>
+                            March
+                            <span style="margin-left: auto;"><i class="fas fa-palette"></i> Color Festival</span>
+                        </div>
+                        <p class="festival-desc">Traditional celebration connected with Lord Krishna, celebrated with music and colors. Features unique Holi traditions specific to the Braj region of Rajasthan.</p>
+                        
+                        <!-- <div class="festival-details">
+                            <h4><i class="fas fa-star"></i> Main Attractions</h4>
+                            <ul class="attractions-list">
+                                <li>Folk songs & dance</li>
+                                <li>Traditional Holi celebrations</li>
+                                <li>Cultural storytelling</li>
+                            </ul>
+                        </div> -->
+                        
+                        <div class="festival-features">
+                            <div class="feature">
+                                <i class="fas fa-palette"></i>
+                                <span>Color Festival</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-music"></i>
+                                <span>Folk Music</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>Free Entry</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kite Festival -->
+                <div class="festival-card">
+                    <div class="festival-img">
+                        <img src="https://imgs.search.brave.com/MblzEC9bboL4XjnIj_tRJN79pt3QAoFBmpc_M5_6QDA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9leGNs/dXNpdmVpbmRpYWpv/dXJuZXlzLmNvbS9h/c3NldHMvZnJvbnQv/aW1nL2phaXB1ci5w/bmc" alt="Kite Festival">
+                    </div>
+                    <div class="festival-info">
+                        <h3>🪁 Kite Festival <span class="festival-location">Jaipur</span></h3>
+                        <div class="festival-tag">
+                            <i class="fas fa-calendar-alt"></i>
+                            January (Makar Sankranti)
+                            <span style="margin-left: auto;"><i class="fas fa-wind"></i> Sky Festival</span>
+                        </div>
+                        <p class="festival-desc">The sky of Jaipur becomes colorful with thousands of kites during this festival. A vibrant celebration marking the transition of sun into Capricorn.</p>
+                        
+                        <!-- <div class="festival-details">
+                            <h4><i class="fas fa-star"></i> Main Attractions</h4>
+                            <ul class="attractions-list">
+                                <li>Kite flying competitions</li>
+                                <li>Rooftop celebrations</li>
+                                <li>Music and food festivals</li>
+                            </ul>
+                        </div> -->
+                        
+                        <div class="festival-features">
+                            <div class="feature">
+                                <i class="fas fa-wind"></i>
+                                <span>Kite Flying</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-utensils"></i>
+                                <span>Food Festivals</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>Free Entry</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summer Festival -->
+                <div class="festival-card">
+                    <div class="festival-img">
+                        <img src="https://imgs.search.brave.com/0vVe_Aa6zUrvJJrUnRj64ghIwAkOyY6R_iBpZEPDyr4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/bm9ibGVob3VzZXRv/dXJzLmNvbS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAxNy8wNC9z/dW1tZXItZmVzdGl2/YWwtbW91bnQtYWJ1/LXJhamFzdGhhbi5q/cGc" alt="Summer Festival">
+                    </div>
+                    <div class="festival-info">
+                        <h3>🌞 Summer Festival <span class="festival-location">Mount Abu</span></h3>
+                        <div class="festival-tag">
+                            <i class="fas fa-calendar-alt"></i>
+                            May–June
+                            <span style="margin-left: auto;"><i class="fas fa-mountain"></i> Hill Station Festival</span>
+                        </div>
+                        <p class="festival-desc">Celebrated in Rajasthan's only hill station, Mount Abu. A cool retreat with cultural performances, boat races, and traditional fairs during peak summer.</p>
+                        
+                        <!-- <div class="festival-details">
+                            <h4><i class="fas fa-star"></i> Main Attractions</h4>
+                            <ul class="attractions-list">
+                                <li>Boat races on Nakki Lake</li>
+                                <li>Folk dance and music programs</li>
+                                <li>Traditional fairs and cultural shows</li>
+                                <li>Fireworks display</li>
+                            </ul>
+                        </div>
+                         -->
+                        <div class="festival-features">
+                            <div class="feature">
+                                <i class="fas fa-mountain"></i>
+                                <span>Hill Station</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ship"></i>
+                                <span>Boat Races</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>₹300-800</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Festival Guide Card -->
+            <div class="festival-guide">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div>
+                        <h2>Festival Travel Guide & Tips</h2>
+                    </div>
+                </div>
+                <div class="guide-content">
+                    <div class="guide-image">
+                        <img src="https://imgs.search.brave.com/Wvaw9lLsOzG9yHONPnBDM_k0SdPrR_V8F1ef9wDtr8E/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA4Lzc3LzIxLzQw/LzM2MF9GXzg3NzIx/NDA4N19GZ0xINGZ3/VEVkam9xZ1dDTmpo/SFNmdVNNR3dFbEtk/WC5qcGc" alt="Festival Guide">
+                    </div>
+                    <div class="guide-details">
+                        <h3>Planning Your Festival Visit</h3>
+                        <p>Make the most of your festival experience in Rajasthan with these essential tips:</p>
+                        <div class="guide-list">
+                            <ul>
+                                <li><span class="guide-name">Book Accommodation Early:</span> <span class="guide-desc">Hotels fill up months in advance</span></li>
+                                <li><span class="guide-name">Carry Cash:</span> <span class="guide-desc">Many vendors don't accept cards</span></li>
+                                <li><span class="guide-name">Dress Appropriately:</span> <span class="guide-desc">Respect local customs and traditions</span></li>
+                                <li><span class="guide-name">Stay Hydrated:</span> <span class="guide-desc">Carry water during day events</span></li>
+                                <li><span class="guide-name">Learn Basic Phrases:</span> <span class="guide-desc">Simple Hindi greetings help</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Festival Costs & Budgeting -->
+            <div class="section-title">
+                <i class="fas fa-money-bill-wave"></i>
+                <h2>Festival Costs & Budget Planning</h2>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <h4><i class="fas fa-ticket-alt"></i> Entry Costs</h4>
+                    <p><strong>Free Festivals:</strong> Gangaur, Teej, Kite Festival, Brij Holi</p>
+                    <p><strong>Paid Festivals:</strong> Pushkar Fair (₹200-500), Desert Festival (₹200-500)</p>
+                    <p><strong>Premium Events:</strong> Special shows at Mewar Festival (₹500-2000)</p>
+                    <p><strong>Elephant Festival:</strong> Mostly free, some paid seating</p>
+                </div>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-hotel"></i> Accommodation Costs</h4>
+                    <p><strong>Budget:</strong> ₹1000-2500/night (guesthouses)</p>
+                    <p><strong>Mid-range:</strong> ₹2500-6000/night (3-4 star hotels)</p>
+                    <p><strong>Luxury:</strong> ₹8000-20000+/night (heritage hotels)</p>
+                    <p><strong>Festival Season:</strong> Prices increase 50-100%</p>
+                </div>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-utensils"></i> Food & Shopping</h4>
+                    <p><strong>Street Food:</strong> ₹50-200 per meal</p>
+                    <p><strong>Restaurant:</strong> ₹300-800 per meal</p>
+                    <p><strong>Shopping:</strong> Handicrafts ₹500-5000</p>
+                    <p><strong>Local Transport:</strong> ₹500-1500 per day</p>
+                </div>
+            </div>
+
+            <!-- Festival Planning -->
+            <div class="info-box" style="grid-column: 1/-1;">
+                <h4><i class="fas fa-calendar-alt"></i> Festival Calendar & Planning</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 15px;">
+                    <div>
+                        <h5>📅 Winter Season (Oct-Feb)</h5>
+                        <p>• Pushkar Camel Fair (Oct-Nov)</p>
+                        <p>• Desert Festival (Feb)</p>
+                        <p>• Kite Festival (Jan)</p>
+                        <p>• Best for: Pleasant weather</p>
+                    </div>
+                    <div>
+                        <h5>🌸 Spring Season (Mar-Apr)</h5>
+                        <p>• Gangaur Festival (Mar-Apr)</p>
+                        <p>• Mewar Festival (Mar-Apr)</p>
+                        <p>• Elephant Festival (Mar)</p>
+                        <p>• Brij Holi (Mar)</p>
+                    </div>
+                    <div>
+                        <h5>🌧️ Monsoon Season (Jul-Aug)</h5>
+                        <p>• Teej Festival (Jul-Aug)</p>
+                        <p>• Local village festivals</p>
+                        <p>• Religious ceremonies</p>
+                        <p>• Women-centric celebrations</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back Button -->
+            <div class="back-to-home">
+                <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>RajasthanTour</h3>
+                    <p>Discover the majestic land of kings - Rajasthan. Explore royal heritage, vibrant culture, and breathtaking landscapes.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="cities.html">Cities</a></li>
+                        <li><a href="forts.html">Forts & Palaces</a></li>
+                        <li><a href="temples.html">Temples</a></li>
+                        <li><a href="culture.html">Culture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>More Links</h4>
+                    <ul>
+                        <li><a href="adventure.html">Adventure</a></li>
+                        <li><a href="food.html">Food</a></li>
+                        <li><a href="hotels.html">Hotels</a></li>
+                        <li><a href="shopping.html">Shopping</a></li>
+                        <li><a href="festivals.html" class="active">Festivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Jaipur, Rajasthan, India</li>
+                        <li><i class="fas fa-phone"></i> +91 123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@rajasthantour.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RajasthanTour. All rights reserved. | Designed with <i class="fas fa-heart"></i> for Rajasthan</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.festival-card, .info-box, .festival-guide, .seasonal-item, .seasonal-section').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

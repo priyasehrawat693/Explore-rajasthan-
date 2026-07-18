@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajasthani Food - Land of Kings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ========== BASE STYLES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #D4AF37;
+            --secondary: #8B0000;
+            --dark: #1A1A1A;
+            --light: #F5F5F5;
+            --accent: #FF7F50;
+            --text: #333333;
+            --gray: #888888;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ========== NAVIGATION ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(26, 26, 26, 0.95);
+            padding: 15px 0;
+            transition: var(--transition);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-menu a {
+            color: white;
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after, .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: white;
+            transition: var(--transition);
+        }
+
+        /* ========== PAGE HEADER ========== */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            padding: 100px 0 50px;
+            margin-top: 60px;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* ========== PAGE CONTENT ========== */
+        .page-content {
+            padding: 50px 0;
+        }
+
+        /* Intro Box */
+        .intro-box {
+            background: linear-gradient(135deg, #f9f9f9, #fff);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-left: 5px solid var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .intro-box h2 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .intro-box p {
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 30px;
+        }
+
+        .section-title i {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        /* Food Category Grid */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        /* Food Card */
+        .food-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .food-img {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .food-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .food-card:hover .food-img img {
+            transform: scale(1.05);
+        }
+
+        .food-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .food-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .food-price {
+            background-color: var(--primary);
+            color: white;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .food-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .food-tag i {
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .food-tag .veg-nonveg {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        .veg-nonveg.veg {
+            background-color: green;
+            border: 1px solid darkgreen;
+        }
+
+        .veg-nonveg.nonveg {
+            background-color: #8B0000;
+            border: 1px solid #660000;
+        }
+
+        .food-desc {
+            color: var(--text);
+            margin: 12px 0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .food-features {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .feature {
+            text-align: center;
+            flex: 1;
+        }
+
+        .feature i {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .feature span {
+            font-size: 0.8rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* Thali Section */
+        .thali-section {
+            background: linear-gradient(rgba(212, 175, 55, 0.08), rgba(139, 0, 0, 0.05));
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+            border: 2px dashed var(--primary);
+        }
+
+        .thali-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .thali-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .thali-header h2 {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin: 0;
+        }
+
+        .thali-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .thali-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+            transition: var(--transition);
+        }
+
+        .thali-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .thali-item i {
+            color: var(--primary);
+            font-size: 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .thali-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--secondary);
+        }
+
+        .thali-item p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .thali-price {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.3rem;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .thali-price:hover {
+            transform: scale(1.05);
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .info-box {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid var(--primary);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-box h4 i {
+            color: var(--primary);
+        }
+
+        .info-box p {
+            margin-bottom: 10px;
+            color: var(--text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            padding-left: 5px;
+        }
+
+        .info-box p strong {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* Food Culture Card */
+        .culture-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin: 40px 0;
+            transition: var(--transition);
+        }
+
+        .culture-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .culture-header {
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .culture-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .culture-header h2 {
+            font-size: 1.6rem;
+            color: white;
+            margin: 0;
+        }
+
+        .culture-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .culture-image {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .culture-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .culture-card:hover .culture-image img {
+            transform: scale(1.05);
+        }
+
+        .culture-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .culture-details h3 {
+            font-size: 1.4rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .culture-details > p {
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        /* Food List */
+        .food-list {
+            margin-top: 10px;
+        }
+
+        .food-list ul {
+            margin-top: 10px;
+        }
+
+        .food-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .food-name {
+            font-weight: 600;
+            color: var(--text);
+            min-width: 200px;
+        }
+
+        .food-price-range {
+            color: var(--primary);
+            font-weight: 600;
+            text-align: right;
+            flex: 1;
+        }
+
+        /* Drink Cards */
+        .drink-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-top: 4px solid #2E8B57;
+        }
+
+        .drink-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .drink-img {
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .drink-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .drink-card:hover .drink-img img {
+            transform: scale(1.05);
+        }
+
+        .drink-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .drink-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #2E8B57;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .drink-price {
+            background-color: #2E8B57;
+            color: white;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .drink-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .drink-tag i {
+            color: #2E8B57;
+            font-size: 0.9rem;
+        }
+
+        .drink-desc {
+            color: var(--text);
+            margin: 12px 0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .drink-features {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Restaurant Planning */
+        .info-box[style*="grid-column: 1/-1"] {
+            background: white;
+            border-left: 5px solid var(--primary);
+            padding: 25px;
+        }
+
+        .info-box h5 {
+            color: var(--secondary);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-box h5 i {
+            color: var(--primary);
+        }
+
+        .info-box[style*="grid-column: 1/-1"] p {
+            margin-bottom: 8px;
+            padding-left: 5px;
+            position: relative;
+            color: var(--text);
+        }
+
+        .info-box[style*="grid-column: 1/-1"] p:before {
+            content: "•";
+            color: var(--primary);
+            position: absolute;
+            left: -10px;
+            font-weight: bold;
+        }
+
+        /* Back Button */
+        .back-to-home {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3, .footer-section h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary);
+        }
+
+        .footer-section p {
+            color: #bbb;
+            margin-bottom: 15px;
+            line-height: 1.7;
+            font-size: 0.9rem;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-section ul li a.active {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        .contact-info i {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom i {
+            color: #ff4757;
+        }
+
+        /* ========== RESPONSIVE STYLES ========== */
+        @media (max-width: 992px) {
+            .page-header h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .category-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .culture-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .culture-image {
+                height: 250px;
+                order: 1;
+            }
+            
+            .culture-details {
+                order: 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--dark);
+                text-align: center;
+                transition: var(--transition);
+                padding: 15px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 12px 0;
+            }
+            
+            .page-header {
+                padding: 90px 0 40px;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .food-card, .drink-card {
+                max-width: 100%;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .thali-section {
+                padding: 25px;
+            }
+            
+            .culture-content {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 1.7rem;
+            }
+            
+            .page-header p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section-title i {
+                font-size: 1.8rem;
+            }
+            
+            .food-info h3 {
+                font-size: 1.2rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .culture-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+                padding: 15px;
+            }
+            
+            .culture-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
+            .culture-header h2 {
+                font-size: 1.4rem;
+            }
+            
+            .food-features, .drink-features {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .feature {
+                flex: none;
+                width: calc(50% - 10px);
+            }
+            
+            .back-btn {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+            
+            .thali-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .thali-header h2 {
+                font-size: 1.6rem;
+            }
+            
+            .food-list li {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .food-price-range {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Rajasthan<span>Tour</span></a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cities.html">Cities</a></li>
+                <li><a href="forts.html">Forts & Palaces</a></li>
+                <li><a href="temples.html">Temples</a></li>
+                <li><a href="culture.html">Culture</a></li>
+                <li><a href="adventure.html">Adventure</a></li>
+                <li><a href="food.html" class="active">Food</a></li>
+                <li><a href="hotels.html">Hotels</a></li>
+                <li><a href="shopping.html">Shopping</a></li>
+                <li><a href="festivals.html">Festivals</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Royal Rajasthani Cuisine - A Food Journey</h1>
+            <p>Experience the rich flavors, royal heritage, and desert-inspired dishes of Rajasthan's culinary tradition</p>
+        </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+        <div class="container">
+            <!-- Food Introduction -->
+           
+
+            <!-- Main Traditional Dishes -->
+            <div class="section-title">
+                <i class="fas fa-utensils"></i>
+                <h2>🥘 Main Traditional Dishes</h2>
+            </div>
+
+            <div class="category-grid">
+                <!-- Dal Baati Churma -->
+                <div class="food-card">
+                    <div class="food-img">
+                        <img src="https://imgs.search.brave.com/XpYnNI8RBWIOFLfsi-4N23r408xY-W9e913264bgPLo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzE4LzAwLzc0LzUw/LzM2MF9GXzE4MDA3/NDUwNzdfWkdxejdx/QURCdWU4SU9lNGlk/S3J5bHZ1N25VOHBX/eUwuanBn" alt="Dal Baati Churma">
+                    </div>
+                    <div class="food-info">
+                        <h3>Dal Baati Churma <span class="food-price">₹200 – ₹350</span></h3>
+                        <div class="food-tag">
+                            <i class="fas fa-star"></i>
+                            <span class="veg-nonveg veg"></span> Vegetarian
+                            <span style="margin-left: auto;"><i class="fas fa-fire"></i> Most Famous</span>
+                        </div>
+                        <p class="food-desc">The identity of Rajasthan — hard wheat baati (baked dough balls) served with spicy dal (lentils) and sweet churma (crushed wheat dessert). It is a complete meal that represents the culinary heritage of the state.</p>
+                        <div class="food-features">
+                            <div class="feature">
+                                <i class="fas fa-wheat-alt"></i>
+                                <span>Hard Wheat</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-pepper-hot"></i>
+                                <span>Spicy Dal</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-candy-cane"></i>
+                                <span>Sweet Churma</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gatte ki Sabzi -->
+                <div class="food-card">
+                    <div class="food-img">
+                        <img src="https://imgs.search.brave.com/BGGT7ejuItMDyhLBKLqSAstHjlLCYvSzqcKQGDtSwbQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/c2h1dHRlcnN0b2Nr/LmNvbS9pbWFnZS1w/aG90by9iZXNhbi1n/YXR0ZS1raS1zYWJ6/aS1yYW1ydWNoLTI2/MG53LTIxNjg3Nzg4/MjEuanBn" alt="Gatte ki Sabzi">
+                    </div>
+                    <div class="food-info">
+                        <h3>Gatte ki Sabzi <span class="food-price">₹150 – ₹250</span></h3>
+                        <div class="food-tag">
+                            <i class="fas fa-leaf"></i>
+                            <span class="veg-nonveg veg"></span> Vegetarian
+                            <span style="margin-left: auto;"><i class="fas fa-seedling"></i> Besan Based</span>
+                        </div>
+                        <p class="food-desc">Besan ke gatte ki curry - Gram flour dumplings cooked in spicy yogurt-based gravy. Originally created during droughts when fresh vegetables were scarce. Perfect with bajra roti.</p>
+                        <div class="food-features">
+                            <div class="feature">
+                                <i class="fas fa-mortar-pestle"></i>
+                                <span>Gram Flour</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bowl-food"></i>
+                                <span>Yogurt Gravy</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-cloud-sun"></i>
+                                <span>Drought Food</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ker Sangri -->
+                <div class="food-card">
+                    <div class="food-img">
+                        <img src="https://imgs.search.brave.com/Y0ayQagyWPvSaCwRdrvwzjVoFKu3Odk4L_lMFanNpLM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/Zm9vZGllLXRyYWls/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyMS8xMS8yMDIx/MTEwM18xNDQ3NDYz/OTZfaU9TLXNjYWxl/ZC5qcGc" alt="Ker Sangri">
+                    </div>
+                    <div class="food-info">
+                        <h3>Ker Sangri <span class="food-price">₹200 – ₹300</span></h3>
+                        <div class="food-tag">
+                            <i class="fas fa-cactus"></i>
+                            <span class="veg-nonveg veg"></span> Vegetarian
+                            <span style="margin-left: auto;"><i class="fas fa-tree"></i> Desert Vegetables</span>
+                        </div>
+                        <p class="food-desc">Desert vegetables dish - A unique preparation made from ker (wild berries) and sangri (desert beans) that grow in the arid regions of Rajasthan. Marinated in buttermilk and spices.</p>
+                        <div class="food-features">
+                            <div class="feature">
+                                <i class="fas fa-tree"></i>
+                                <span>Ker Berry</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-seedling"></i>
+                                <span>Sangri Beans</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-desert"></i>
+                                <span>Desert Special</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panchmel Dal -->
+                <div class="food-card">
+                    <div class="food-img">
+                        <img src="https://imgs.search.brave.com/ckwDlpjJFjrIJmoUU2L3NvfEVs2vixxBFte3qsLpKdg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/YXJjaGFuYXNraXRj/aGVuLmNvbS9fbmV4/dC9pbWFnZT91cmw9/aHR0cHM6Ly9pbWFn/ZXMuYXJjaGFuYXNr/aXRjaGVuLmNvbS9p/bWFnZXMvcmVjaXBl/cy9pbmRpYW4vbWFp/bi1jb3Vyc2Uvbm9y/dGgtaW5kaWFuLXZl/Z2V0YXJpYW4tcmVj/aXBlcy9kYWwtcmVj/aXBlcy9SYWphc3Ro/YW5pX0RhbF9QYW5j/aG1lbF9EYWxfcmVj/aXBlXzRfYzcxOTdh/MjMxNi5qcGcmdz0x/OTIwJnE9OTA" alt="Panchmel Dal">
+                    </div>
+                    <div class="food-info">
+                        <h3>Panchmel Dal <span class="food-price">₹150 – ₹250</span></h3>
+                        <div class="food-tag">
+                            <i class="fas fa-bowl-rice"></i>
+                            <span class="veg-nonveg veg"></span> Vegetarian
+                            <span style="margin-left: auto;"><i class="fas fa-layer-group"></i> 5 Types Dal</span>
+                        </div>
+                        <p class="food-desc">5 type ki dals se bani - A nutritious mix of five different lentils cooked together with traditional spices. Often served with Baati and is a protein-rich staple in Rajasthani households.</p>
+                        <div class="food-features">
+                            <div class="feature">
+                                <i class="fas fa-layer-group"></i>
+                                <span>5 Lentils Mix</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-utensil-spoon"></i>
+                                <span>Spiced Well</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-seedling"></i>
+                                <span>High Protein</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bajra Roti & Lehsun Chutney -->
+                <div class="food-card">
+                    <div class="food-img">
+                        <img src="https://imgs.search.brave.com/PS6N0Jdf5b6ic4YXxUBHjwy2fhAwqlLHB1Tt-OGcF8g/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93YW5k/ZXJvbi1pbWFnZXMu/Z3VtbGV0LmlvL2dh/bGxlcnkvbmV3LzIw/MjUvMDkvMDgvMTc1/NzI3Nzg1OTA2OS1s/ZWhzdW4tY2h1dG5l/eS13aXRoLWJhanJh/LXJvdGkuanBn" alt="Bajra Roti & Lehsun Chutney">
+                    </div>
+                    <div class="food-info">
+                        <h3>Bajra Roti & Lehsun Chutney <span class="food-price">₹100 – ₹180</span></h3>
+                        <div class="food-tag">
+                            <i class="fas fa-bread-slice"></i>
+                            <span class="veg-nonveg veg"></span> Vegetarian
+                            <span style="margin-left: auto;"><i class="fas fa-wind"></i> Desert Staple</span>
+                        </div>
+                        <p class="food-desc">Desert staple food - Bajra (pearl millet) roti served with spicy garlic chutney. A winter favorite that provides warmth and energy in cold desert nights. Often eaten with ghee or butter.</p>
+                        <div class="food-features">
+                            <div class="feature">
+                                <i class="fas fa-wheat-awn"></i>
+                                <span>Pearl Millet</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-garlic"></i>
+                                <span>Garlic Chutney</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-fire"></i>
+                                <span>Winter Food</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Papad ki Sabzi -->
+                <div class="food-card">
+                    <div class="food-img">
+                        <img src="https://imgs.search.brave.com/i63Ry4OOpz4YdpUXJfFDgnThzZ7z38zZeaa33ld5XNY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/YXJjaGFuYXNraXRj/aGVuLmNvbS9fbmV4/dC9pbWFnZT91cmw9/aHR0cHM6Ly9pbWFn/ZXMuYXJjaGFuYXNr/aXRjaGVuLmNvbS9p/bWFnZXMvcmVjaXBl/cy9pbmRpYW4vbWFp/bi1jb3Vyc2Uvbm9y/dGgtaW5kaWFuLXZl/Z2V0YXJpYW4tcmVj/aXBlcy9zYWJ6aS1y/ZWNpcGVzL1JhamFz/dGhhbmlfUGFwYWRf/S2lfU2FiemlfUmVj/aXBlX05vcnRoX2lu/ZGlhbl9IZWFsdGh5/XzFfMGEwYjUzNTVl/OC5qcGcmdz0xOTIw/JnE9OTA" alt="Papad ki Sabzi">
+                    </div>
+                    <div class="food-info">
+                        <h3>Papad ki Sabzi <span class="food-price">₹150 – ₹250</span></h3>
+                        <div class="food-tag">
+                            <i class="fas fa-fire"></i>
+                            <span class="veg-nonveg veg"></span> Vegetarian
+                            <span style="margin-left: auto;"><i class="fas fa-lightbulb"></i> Unique Curry</span>
+                        </div>
+                        <p class="food-desc">Unique curry - A creative dish made from roasted papads (lentil wafers) cooked in a tangy yogurt-based gravy. A quick-to-make dish that showcases Rajasthani culinary innovation.</p>
+                        <div class="food-features">
+                            <div class="feature">
+                                <i class="fas fa-cookie-bite"></i>
+                                <span>Papad Based</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bowl-food"></i>
+                                <span>Yogurt Gravy</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bolt"></i>
+                                <span>Quick Recipe</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Famous Sweets -->
+            <div class="section-title">
+                <i class="fas fa-candy-cane"></i>
+                <h2>🍬 Famous Rajasthani Sweets</h2>
+            </div>
+
+            <div class="category-grid">
+                <!-- Ghewar -->
+                <div class="food-card">
+                    <div class="food-img">
+                        <img src="https://imgs.search.brave.com/aJ5Fx6hJrxpByAwQyI4Yxg8Gwxb7pY_1BI4Mr5C72mY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/Y2hlZmt1bmFsa2Fw/dXIuY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDIxLzA4L0NX/MF84OTQ0LTEtMTAy/NHg2ODEuanBnP3Y9/MTY1NzUxNzk3MQ" alt="Ghewar">
+                    </div>
+                    <div class="food-info">
+                        <h3>Ghewar <span class="food-price">₹300 – ₹600 / kg</span></h3>
+                        <div class="food-tag">
+                            <i class="fas fa-honeycomb"></i>
+                            Festival Special Sweet
+                            <span style="margin-left: auto;"><i class="fas fa-calendar-star"></i> Teej Special</span>
+                        </div>
+                        <p class="food-desc">Honeycomb style sweet made from flour and soaked in sugar syrup. A must-have during Teej and other festivals. Comes in plain, mawa, and malai varieties. Crispy texture with sweet syrup.</p>
+                        <div class="food-features">
+                            <div class="feature">
+                                <i class="fas fa-honeycomb"></i>
+                                <span>Honeycomb</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Festival Sweet</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-candy"></i>
+                                <span>Syrup Soaked</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mawa Kachori -->
+                <div class="food-card">
+                    <div class="food-img">
+                        <img src="https://imgs.search.brave.com/oxlqRfBl_MPftzMHmg5arbR5xZV1_xQd5cJJDpe5FAQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/Y2FkYnVyeWRlc3Nl/cnRzY29ybmVyLmNv/bS9ocy1mcy9odWJm/cy9kYy13ZWJzaXRl/LTIwMjIvYXJ0aWNs/ZXMvcmFqYXN0aGFu/aS1zd2VldC1yZWNp/cGVzLWZyb20tbWF3/YS1rYWNob3JpLWFu/ZC1tb3JlL21hd2Et/a2FjaG9yaS1mZWF0/dXJlZC53ZWJwP3dp/ZHRoPTc2OCZoZWln/aHQ9NDMyJm5hbWU9/bWF3YS1rYWNob3Jp/LWZlYXR1cmVkLndl/YnA" alt="Mawa Kachori">
+                    </div>
+                    <div class="food-info">
+                        <h3>Mawa Kachori <span class="food-price">₹40 – ₹80 / piece</span></h3>
+                        <div class="food-tag">
+                            <i class="fas fa-map-pin"></i>
+                            Jodhpur ki speciality
+                            <span style="margin-left: auto;"><i class="fas fa-gift"></i> Stuffed Sweet</span>
+                        </div>
+                        <p class="food-desc">Jodhpur's famous sweet - Flaky pastry filled with rich mawa (khoya) and dry fruits, deep-fried and dipped in sugar syrup. A heavenly treat for those with a sweet tooth.</p>
+                        <div class="food-features">
+                            <div class="feature">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Jodhpur Special</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-box-open"></i>
+                                <span>Stuffed</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-candy"></i>
+                                <span>Syrup Dipped</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Churma Ladoo -->
+                <div class="food-card">
+                    <div class="food-img">
+                        <img src="https://imgs.search.brave.com/7ldZ7WbG75Q7Idnr9xN3onZHlHYLn3QnIUObN7oxNgA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/c2h1dHRlcnN0b2Nr/LmNvbS9pbWFnZS1w/aG90by9jaHVybWEt/bGFkb29sYWRkdWlu/ZGlhbi1zd2VldHMt/bWFkZS13aG9sZS0y/NjBudy0xNjI5NDU1/MjY5LmpwZw" alt="Churma Ladoo">
+                    </div>
+                    <div class="food-info">
+                        <h3>Churma Ladoo <span class="food-price">₹250 – ₹400 / kg</span></h3>
+                        <div class="food-tag">
+                            <i class="fas fa-wheat-alt"></i>
+                            Baati ke sath
+                            <span style="margin-left: auto;"><i class="fas fa-mortar-pestle"></i> Crushed Wheat</span>
+                        </div>
+                        <p class="food-desc">Sweet wheat laddoo made from crushed baati mixed with ghee, sugar/jaggery, and dry fruits. Traditionally served as part of Dal Baati Churma but now enjoyed independently.</p>
+                        <div class="food-features">
+                            <div class="feature">
+                                <i class="fas fa-wheat-alt"></i>
+                                <span>Wheat Based</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-utensils"></i>
+                                <span>With Baati</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-candy"></i>
+                                <span>Sweet Ladoo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Moong Dal Halwa -->
+                <div class="food-card">
+                    <div class="food-img">
+                        <img src="https://imgs.search.brave.com/ydQBasI9_DQZFdJ8hy4xr0JKbiOGYVAPQHCHuEEYG3k/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/c2h1dHRlcnN0b2Nr/LmNvbS9pbWFnZS1w/aG90by9tb29uZy1k/YWwtaGFsd2EtY2xh/c3NpYy1pbmRpYW4t/MjYwbnctMTc3ODYz/MDI3OS5qcGc" alt="Moong Dal Halwa">
+                    </div>
+                    <div class="food-info">
+                        <h3>Moong Dal Halwa <span class="food-price">₹300 – ₹600 / kg</span></h3>
+                        <div class="food-tag">
+                            <i class="fas fa-snowflake"></i>
+                            Winter special sweet
+                            <span style="margin-left: auto;"><i class="fas fa-map-marker-alt"></i> Jaipur Special</span>
+                        </div>
+                        <p class="food-desc">Jaipur's famous winter delicacy - Slow-cooked moong dal (split yellow lentils) halwa made with generous amounts of ghee and dry fruits. Rich, creamy, and served hot during winters.</p>
+                        <div class="food-features">
+                            <div class="feature">
+                                <i class="fas fa-snowflake"></i>
+                                <span>Winter Special</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Jaipur Special</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-seedling"></i>
+                                <span>Moong Dal Based</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imarti -->
+                <div class="food-card">
+                    <div class="food-img">
+                        <img src="https://imgs.search.brave.com/1ON9Ga5zaYyLEh3axCgTFNqkuNadfFSc6Lfzon72tHQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9pbmRp/YW4tdHJhZGl0aW9u/YWwtc3dlZXQtZm9v/ZC1pbWFydGktaW5k/aWFuLXRyYWRpdGlv/bmFsLXN3ZWV0LWlt/YXJ0aS1hbHNvLWtu/b3ctYXMtYW1yaXRp/LW9tcml0aS1qYWhh/bmdpci1qYWxlYmkt/amFhbmdpcmktbWRl/LTE1OTA3MTEwNy5q/cGc" alt="Imarti">
+                    </div>
+                    <div class="food-info">
+                        <h3>Imarti <span class="food-price">₹200 – ₹350 / kg</span></h3>
+                        <div class="food-tag">
+                            <i class="fas fa-ring"></i>
+                            Jalebi jaisi par thick
+                            <span style="margin-left: auto;"><i class="fas fa-map-pin"></i> Jaipur, Ajmer</span>
+                        </div>
+                        <p class="food-desc">Sugar syrup soaked sweet made from urad dal batter, deep-fried in circular patterns. Thicker and crispier than jalebi, with a unique floral pattern. Popular in Jaipur and Ajmer.</p>
+                        <div class="food-features">
+                            <div class="feature">
+                                <i class="fas fa-ring"></i>
+                                <span>Circular Pattern</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Jaipur & Ajmer</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-candy"></i>
+                                <span>Syrup Soaked</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Malpua -->
+                <div class="food-card">
+                    <div class="food-img">
+                        <img src="https://imgs.search.brave.com/rSJwsKxKWllMolsZC_NvMdSAP3_JxczwKEIbowjQjYk/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzdmLzFh/L2JkLzdmMWFiZDA2/ZGE4Y2EwZDg2MjIy/Njc3Y2ZkYmM4NjBk/LmpwZw" alt="Malpua">
+                    </div>
+                    <div class="food-info">
+                        <h3>Malpua <span class="food-price">₹60 – ₹120</span></h3>
+                        <div class="food-tag">
+                            <i class="fas fa-pancake"></i>
+                            Traditional dessert
+                            <span style="margin-left: auto;"><i class="fas fa-fire"></i> Deep Fried</span>
+                        </div>
+                        <p class="food-desc">Sugar syrup me fried pancake - Sweet deep-fried pancakes made from flour, milk, and bananas, soaked in sugar syrup. Often served with rabri (thickened milk) during festivals.</p>
+                        <div class="food-features">
+                            <div class="feature">
+                                <i class="fas fa-pancake"></i>
+                                <span>Sweet Pancake</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-fire"></i>
+                                <span>Deep Fried</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-glass-whiskey"></i>
+                                <span>With Rabri</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Traditional Drinks -->
+            <div class="section-title">
+                <i class="fas fa-glass-cheers"></i>
+                <h2>🥤 Traditional Drinks</h2>
+            </div>
+
+            <div class="category-grid">
+                <!-- Chhach -->
+                <div class="drink-card">
+                    <div class="drink-img">
+                        <img src="https://imgs.search.brave.com/HsVpumSfeMbr1OwZccjLAAsI1bRBXcABygMUNGTrXF8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vZWJodWJh/bmVzd2FyLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyMC8w/MS9VbnRpdGxlZC1k/ZXNpZ24tMTYuanBn/P3Jlc2l6ZT01NjAs/MzE1JnNzbD0x" alt="Chhach (Buttermilk)">
+                    </div>
+                    <div class="drink-info">
+                        <h3>Chhach (Buttermilk) <span class="drink-price">₹20 – ₹50</span></h3>
+                        <div class="drink-tag">
+                            <i class="fas fa-sun"></i>
+                            Garmi ke liye best
+                        </div>
+                        <p class="drink-desc">The ultimate summer cooler in Rajasthan's scorching heat. Made from yogurt, water, and seasoned with roasted cumin, mint, and black salt. Served chilled in clay pots for enhanced flavor.</p>
+                        <div class="drink-features">
+                            <div class="feature">
+                                <i class="fas fa-sun"></i>
+                                <span>Summer Cooler</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-clay-pot"></i>
+                                <span>Clay Pot Served</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-seedling"></i>
+                                <span>Digestive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lassi -->
+                <div class="drink-card">
+                    <div class="drink-img">
+                        <img src="https://imgs.search.brave.com/7ikCXDMDgallcqt3Iwr9qrbyHo_7mlpyTdLmDmDdojc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAxLzUzLzQ5LzU3/LzM2MF9GXzE1MzQ5/NTc1N18zSzlCV1hL/bVRvSEhmU0hqd0R3/aEt1Q2VQV2hxdGl4/bi5qcGc" alt="Lassi">
+                    </div>
+                    <div class="drink-info">
+                        <h3>Lassi <span class="drink-price">₹40 – ₹80</span></h3>
+                        <div class="drink-tag">
+                            <i class="fas fa-glass-whiskey"></i>
+                            Thick & sweet
+                        </div>
+                        <p class="drink-desc">Rich, creamy yogurt-based drink available in sweet or salty variations. Sweet lassi is flavored with cardamom, saffron, and rose water, topped with malai (cream) and dry fruits.</p>
+                        <div class="drink-features">
+                            <div class="feature">
+                                <i class="fas fa-glass-whiskey"></i>
+                                <span>Creamy Texture</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-crown"></i>
+                                <span>With Malai</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-utensil-spoon"></i>
+                                <span>Sweet/Salty</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aam Panna -->
+                <div class="drink-card">
+                    <div class="drink-img">
+                        <img src="https://imgs.search.brave.com/-pFCSQ0xxV75ZXQEeLmGL9as51WE-16iONfaoeYZIDo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzE2LzE5Lzg1LzIy/LzM2MF9GXzE2MTk4/NTIyMTlfelE0U3NO/cjZsM3dtSDlVU1Zq/ZE9kQUFVaFFLektq/ejAuanBn" alt="Aam Panna">
+                    </div>
+                    <div class="drink-info">
+                        <h3>Aam Panna <span class="drink-price">₹30 – ₹60</span></h3>
+                        <div class="drink-tag">
+                            <i class="fas fa-mango"></i>
+                            Summer drink
+                        </div>
+                        <p class="drink-desc">Refreshing raw mango drink that prevents heat stroke. Made from boiled raw mangoes, mint, cumin, and black salt. Sometimes served with soda for extra fizz. Perfect for Rajasthan's hot summers.</p>
+                        <div class="drink-features">
+                            <div class="feature">
+                                <i class="fas fa-mango"></i>
+                                <span>Raw Mango</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-temperature-high"></i>
+                                <span>Heat Stroke Prevent</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-glass-cheers"></i>
+                                <span>With Soda</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rajasthani Thali -->
+            <div class="thali-section">
+                <div class="thali-header">
+                    <div class="thali-icon">
+                        <i class="fas fa-utensil-spoon"></i>
+                    </div>
+                    <div>
+                        <h2>🍽️ Rajasthani Thali</h2>
+                        <p style="color: var(--secondary); font-weight: 600;">⭐ Sab kuch ek plate me - Everything on one plate</p>
+                    </div>
+                </div>
+                <p style="color: var(--text); max-width: 800px; margin: 0 auto 20px; line-height: 1.7;">A complete Rajasthani thali offers a balanced meal with all flavors - sweet, sour, salty, bitter, and spicy. Traditionally served on large brass plates (thali) with small bowls (katoris) for different dishes.</p>
+                
+                <div class="thali-content">
+                    <div class="thali-item">
+                        <i class="fas fa-bowl-rice"></i>
+                        <div>
+                            <h4>Dal Baati Churma</h4>
+                            <p>The star combination of the thali</p>
+                        </div>
+                    </div>
+                    <div class="thali-item">
+                        <i class="fas fa-mortar-pestle"></i>
+                        <div>
+                            <h4>Gatte ki Sabzi</h4>
+                            <p>Gram flour dumplings in spicy gravy</p>
+                        </div>
+                    </div>
+                    <div class="thali-item">
+                        <i class="fas fa-tree"></i>
+                        <div>
+                            <h4>Ker Sangri</h4>
+                            <p>Desert berries and beans preparation</p>
+                        </div>
+                    </div>
+                    <div class="thali-item">
+                        <i class="fas fa-bread-slice"></i>
+                        <div>
+                            <h4>Bajra Roti & Lehsun Chutney</h4>
+                            <p>Millet bread with spicy garlic paste</p>
+                        </div>
+                    </div>
+                    <div class="thali-item">
+                        <i class="fas fa-candy"></i>
+                        <div>
+                            <h4>Sweet (Ghewar/Malpua)</h4>
+                            <p>Traditional dessert to finish the meal</p>
+                        </div>
+                    </div>
+                    <div class="thali-item">
+                        <i class="fas fa-glass-whiskey"></i>
+                        <div>
+                            <h4>Chhach or Lassi</h4>
+                            <p>Traditional drink to accompany food</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="thali-price">💰 ₹250 – ₹500</div>
+            </div>
+
+            <!-- Food Culture Card -->
+            <div class="culture-card">
+                <div class="culture-header">
+                    <div class="culture-icon">
+                        <i class="fas fa-pepper-hot"></i>
+                    </div>
+                    <div>
+                        <h2>Rajasthani Food Culture & History</h2>
+                    </div>
+                </div>
+                <div class="culture-content">
+                    <div class="culture-image">
+                        <img src="https://imgs.search.brave.com/MSxf_0n3tvG2bgCQoO5U6fVzRIneVdF_KXIfYLfAeQA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jb29r/d2l0aHJlbnUuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIw/LzA5L1JhamFzdGhh/bmktVGhhbGlfMS5w/bmc" alt="Rajasthani Food Culture">
+                    </div>
+                    <div class="culture-details">
+                        <h3>Why Rajasthani Cuisine is Unique?</h3>
+                        <p>Rajasthani food evolved from the need to create long-lasting dishes in the arid desert climate with scarce water and fresh vegetables. The cuisine is characterized by:</p>
+                        <div class="food-list">
+                            <ul>
+                                <li><span class="food-name">Use of Dried Ingredients:</span> <span class="food-price-range">Lentils, beans, dried vegetables</span></li>
+                                <li><span class="food-name">Liberal Use of Ghee:</span> <span class="food-price-range">For preservation & flavor</span></li>
+                                <li><span class="food-name">Spice Blends:</span> <span class="food-price-range">Unique Rajasthani masalas</span></li>
+                                <li><span class="food-name">Milk & Dairy Products:</span> <span class="food-price-range">Buttermilk, ghee, curd</span></li>
+                                <li><span class="food-name">Royal Influence:</span> <span class="food-price-range">Palace recipes & hunting food</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Best Places to Eat -->
+            <div class="section-title">
+                <i class="fas fa-map-marker-alt"></i>
+                <h2>Best Places to Eat in Rajasthan</h2>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <h4><i class="fas fa-utensils"></i> Jaipur - For Royal Dining</h4>
+                    <p><strong>Laxmi Misthan Bhandar (LMB):</strong> Best traditional sweets & snacks</p>
+                    <p><strong>Natraj Dining Hall:</strong> Authentic Rajasthani thali</p>
+                    <p><strong>Handi Restaurant:</strong> Famous for vegetarian dishes</p>
+                    <p><strong>Chokhi Dhani:</strong> Cultural village with traditional food</p>
+                </div>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-utensils"></i> Jodhpur - For Spicy Delights</h4>
+                    <p><strong>Gypsy Restaurant:</strong> Authentic Rajasthani cuisine</p>
+                    <p><strong>Janta Sweet Home:</strong> Best Mawa Kachori</p>
+                    <p><strong>On The Rocks:</strong> Fine dining with local flavors</p>
+                    <p><strong>Shri Mishrilal Hotel:</strong> Famous for Rabri & Lassi</p>
+                </div>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-utensils"></i> Udaipur - For Lakeview Dining</h4>
+                    <p><strong>Ambrai Restaurant:</strong> Lake Pichola view with local food</p>
+                    <p><strong>Millets of Mewar:</strong> Healthy traditional options</p>
+                    <p><strong>Jagat Niwas Palace:</strong> Royal dining experience</p>
+                    <p><strong>Upre:</strong> Rooftop restaurant with traditional menu</p>
+                </div>
+            </div>
+
+            <!-- Cooking Tips -->
+            <div class="info-box" style="grid-column: 1/-1;">
+                <h4><i class="fas fa-cheese"></i> Rajasthani Cooking Tips & Ingredients</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 15px;">
+                    <div>
+                        <h5><i class="fas fa-pepper-hot"></i> Essential Spices</h5>
+                        <p>• Mathania Red Chillies (traditional flavor)</p>
+                        <p>• Asafoetida (Hing) - for digestion</p>
+                        <p>• Dried Mango Powder (Amchur)</p>
+                        <p>• Fenugreek Seeds (Methi)</p>
+                    </div>
+                    <div>
+                        <h5><i class="fas fa-fire"></i> Cooking Methods</h5>
+                        <p>• Slow cooking in clay pots</p>
+                        <p>• Baking in traditional wood fire</p>
+                        <p>• Sun-drying vegetables</p>
+                        <p>• Using ghee for preservation</p>
+                    </div>
+                    <div>
+                        <h5><i class="fas fa-utensils"></i> Must-Try Experiences</h5>
+                        <p>• Attend a cooking workshop</p>
+                        <p>• Visit a local spice market</p>
+                        <p>• Try street food in old cities</p>
+                        <p>• Experience a village meal</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back Button -->
+            <div class="back-to-home">
+                <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>RajasthanTour</h3>
+                    <p>Discover the majestic land of kings - Rajasthan. Explore royal heritage, vibrant culture, and breathtaking landscapes.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="cities.html">Cities</a></li>
+                        <li><a href="forts.html">Forts & Palaces</a></li>
+                        <li><a href="temples.html">Temples</a></li>
+                        <li><a href="culture.html">Culture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>More Links</h4>
+                    <ul>
+                        <li><a href="adventure.html">Adventure</a></li>
+                        <li><a href="food.html" class="active">Food</a></li>
+                        <li><a href="hotels.html">Hotels</a></li>
+                        <li><a href="shopping.html">Shopping</a></li>
+                        <li><a href="festivals.html">Festivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Jaipur, Rajasthan, India</li>
+                        <li><i class="fas fa-phone"></i> +91 123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@rajasthantour.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RajasthanTour. All rights reserved. | Designed with <i class="fas fa-heart"></i> for Rajasthan</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.food-card, .drink-card, .info-box, .culture-card, .thali-item').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

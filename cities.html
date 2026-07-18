@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajasthani Cities - Land of Kings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ========== BASE STYLES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #D4AF37;
+            --secondary: #8B0000;
+            --dark: #1A1A1A;
+            --light: #F5F5F5;
+            --accent: #FF7F50;
+            --text: #333333;
+            --gray: #888888;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --city-primary: #2E8B57;
+            --city-secondary: #4682B4;
+            --city-light: #F0F8FF;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--city-light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--city-primary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ========== NAVIGATION ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(26, 26, 26, 0.95);
+            padding: 15px 0;
+            transition: var(--transition);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-menu a {
+            color: white;
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after, .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: white;
+            transition: var(--transition);
+        }
+
+        /* ========== PAGE HEADER ========== */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1524307875964-4c93a6a99b63?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            padding: 100px 0 50px;
+            margin-top: 60px;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* ========== PAGE CONTENT ========== */
+        .page-content {
+            padding: 50px 0;
+        }
+
+        /* Intro Box */
+        .intro-box {
+            background: linear-gradient(135deg, #f9f9f9, #fff);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-left: 5px solid var(--city-primary);
+            box-shadow: var(--shadow);
+        }
+
+        .intro-box h2 {
+            color: var(--city-primary);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .intro-box p {
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 30px;
+        }
+
+        .section-title i {
+            font-size: 2.2rem;
+            color: var(--city-primary);
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--city-primary), var(--city-secondary));
+            border-radius: 2px;
+        }
+
+        /* City Grid */
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        /* City Card */
+        .city-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-top: 4px solid var(--city-primary);
+        }
+
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .city-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .city-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .city-card:hover .city-img img {
+            transform: scale(1.05);
+        }
+
+        .city-number {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, var(--city-primary), var(--city-secondary));
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .city-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .city-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--city-primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .city-tag {
+            background-color: var(--city-secondary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .city-desc {
+            color: var(--text);
+            margin: 12px 0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .city-features {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .feature {
+            text-align: center;
+            flex: 1;
+        }
+
+        .feature i {
+            color: var(--city-primary);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .feature span {
+            font-size: 0.8rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* City Highlights */
+        .city-highlights {
+            background: #f8f8f8;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .city-highlights h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--city-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .city-highlights h4 i {
+            color: var(--city-primary);
+        }
+
+        .highlights-list {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .highlights-list li {
+            padding: 5px 0;
+            color: var(--text);
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .highlights-list li:before {
+            content: "•";
+            color: var(--city-primary);
+            position: absolute;
+            left: -15px;
+        }
+
+        /* Regional Guide */
+        .regional-section {
+            background: linear-gradient(rgba(46, 139, 87, 0.05), rgba(70, 130, 180, 0.05));
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+            border: 2px dashed var(--city-secondary);
+        }
+
+        .regional-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .regional-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--city-primary), var(--city-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .regional-header h2 {
+            font-size: 2rem;
+            color: var(--city-primary);
+            margin: 0;
+        }
+
+        .regional-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .regional-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .regional-item i {
+            color: var(--city-secondary);
+            font-size: 1.5rem;
+            background: #E0F2F7;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .regional-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .regional-item p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Travel Guide */
+        .travel-guide {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin: 40px 0;
+            transition: var(--transition);
+        }
+
+        .travel-guide:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .guide-header {
+            background: linear-gradient(to right, var(--city-primary), var(--city-secondary));
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .guide-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .guide-header h2 {
+            font-size: 1.6rem;
+            color: white;
+            margin: 0;
+        }
+
+        .guide-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .guide-image {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .guide-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .travel-guide:hover .guide-image img {
+            transform: scale(1.05);
+        }
+
+        .guide-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .guide-details h3 {
+            font-size: 1.4rem;
+            color: var(--city-primary);
+        }
+
+        /* Guide List */
+        .guide-list {
+            margin-top: 10px;
+        }
+
+        .guide-list ul {
+            margin-top: 10px;
+        }
+
+        .guide-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .guide-name {
+            font-weight: 600;
+            color: var(--text);
+            min-width: 180px;
+        }
+
+        .guide-info {
+            color: var(--gray);
+            text-align: right;
+            flex: 1;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .info-box {
+            background: #f8f8f8;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid var(--city-primary);
+            transition: var(--transition);
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--city-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-box h4 i {
+            color: var(--city-primary);
+        }
+
+        .info-box p {
+            margin-bottom: 10px;
+            color: var(--text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Travel Planning */
+        .info-box[style*="grid-column: 1/-1"] {
+            background: linear-gradient(135deg, #fff, #f9f9f9);
+            border-left: 5px solid var(--city-primary);
+        }
+
+        .info-box h5 {
+            color: var(--city-primary);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .info-box[style*="grid-column: 1/-1"] p {
+            margin-bottom: 8px;
+            padding-left: 5px;
+            position: relative;
+        }
+
+        .info-box[style*="grid-column: 1/-1"] p:before {
+            content: "•";
+            color: var(--city-primary);
+            position: absolute;
+            left: -10px;
+        }
+
+        /* Back Button */
+        .back-to-home {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 25px;
+            background: linear-gradient(to right, var(--city-primary), var(--city-secondary));
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3, .footer-section h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary);
+        }
+
+        .footer-section p {
+            color: #bbb;
+            margin-bottom: 15px;
+            line-height: 1.7;
+            font-size: 0.9rem;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-section ul li a.active {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        .contact-info i {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom i {
+            color: #ff4757;
+        }
+
+        /* ========== RESPONSIVE STYLES ========== */
+        @media (max-width: 992px) {
+            .page-header h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .city-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .guide-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .guide-image {
+                height: 250px;
+                order: 1;
+            }
+            
+            .guide-details {
+                order: 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--dark);
+                text-align: center;
+                transition: var(--transition);
+                padding: 15px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 12px 0;
+            }
+            
+            .page-header {
+                padding: 90px 0 40px;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .city-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .city-card {
+                max-width: 100%;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .regional-section {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 1.7rem;
+            }
+            
+            .page-header p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section-title i {
+                font-size: 1.8rem;
+            }
+            
+            .city-info h3 {
+                font-size: 1.3rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .guide-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+                padding: 15px;
+            }
+            
+            .guide-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
+            .guide-header h2 {
+                font-size: 1.4rem;
+            }
+            
+            .guide-content {
+                padding: 20px;
+            }
+            
+            .city-features {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .feature {
+                flex: none;
+                width: calc(50% - 10px);
+            }
+            
+            .back-btn {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .regional-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Rajasthan<span>Tour</span></a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cities.html" class="active">Cities</a></li>
+                <li><a href="forts.html">Forts & Palaces</a></li>
+                <li><a href="temples.html">Temples</a></li>
+                <li><a href="culture.html">Culture</a></li>
+                <li><a href="adventure.html">Adventure</a></li>
+                <li><a href="food.html">Food</a></li>
+                <li><a href="hotels.html">Hotels</a></li>
+                <li><a href="shopping.html">Shopping</a></li>
+                <li><a href="festivals.html">Festivals</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Rajasthani Cities - Royal Heritage & Cultural Hubs</h1>
+            <p>Explore the magnificent cities of Rajasthan, each with unique character, history, and cultural significance</p>
+        </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+        <div class="container">
+            <!-- Cities Introduction -->
+           
+            <!-- Major Cities Grid -->
+            <div class="section-title">
+                <i class="fas fa-city"></i>
+                <h2>Major Cities of Rajasthan</h2>
+            </div>
+
+            <div class="city-grid">
+                <!-- Jaipur - Pink City -->
+                <div class="city-card">
+                    <div class="city-img">
+                        <img src="https://imgs.search.brave.com/-KaHJ0oqIpoEPNMrMBDH9Bhhm2RgcdyIAiPdoZ_IuaQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/Y3JlYXRlLnZpc3Rh/LmNvbS9hcGkvbWVk/aWEvc21hbGwvMzc3/MzQwODY0L3N0b2Nr/LXBob3RvLWhhd2Et/bWFoYWwtYmFkaS1j/aG91cGFkLW1hcmtl/dC1waW5rLWNpdHkt/amFpcHVyLXJhamFz/dGhhbg" alt="Jaipur - Pink City">
+                        <div class="city-number">1️⃣</div>
+                    </div>
+                    <div class="city-info">
+                        <h3>Jaipur – Pink City <span class="city-tag">Capital City</span></h3>
+                        <!-- <p class="city-desc">Rajasthan ki capital city, famous for its forts, palaces, and vibrant markets. Known as the Pink City for its distinctive terracotta pink buildings that welcome visitors.</p>
+                         -->
+                        <div class="city-highlights">
+                            <h4><i class="fas fa-landmark"></i> Famous Attractions</h4>
+                            <ul class="highlights-list">
+                                <li>Amber Fort & Palace</li>
+                                <li>Hawa Mahal (Palace of Winds)</li>
+                                <li>City Palace & Jantar Mantar</li>
+                                <li>Johari Bazaar & local markets</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="city-features">
+                            <div class="feature">
+                                <i class="fas fa-fort-awesome"></i>
+                                <span>Forts & Palaces</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-shopping-bag"></i>
+                                <span>Shopping Hub</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-utensils"></i>
+                                <span>Food Capital</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Udaipur - City of Lakes -->
+                <div class="city-card">
+                    <div class="city-img">
+                        <img src="https://imgs.search.brave.com/e2VRQjMwOHgvmj5lx3GdQbpVRzvnaN6Mam-Q66WGKcs/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTc0/OTEwOTYwOS9waG90/by9sYWtlLXBpY2hv/bGEtYW5kLXVkYWlw/dXItY2l0eS1mcm9t/LXVkYWlwdXItY2l0/eS1wYWxhY2UtbXVz/ZXVtLWluLXVkYWlw/dXItcmFqYXN0aGFu/LWluZGlhLXRoaXMu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PXJiOW16Z3MyZnZk/dHdSQjlRRzJwX2NE/Y1ZsUEFZZXI4OWlH/aTZaaXZ1blU9" alt="Udaipur - City of Lakes">
+                        <div class="city-number">2️⃣</div>
+                    </div>
+                    <div class="city-info">
+                        <h3>Udaipur – City of Lakes <span class="city-tag">Romantic City</span></h3>
+                        <!-- <p class="city-desc">Lakes aur palaces ke liye famous, often called the Venice of the East. A romantic city with beautiful lakes, palaces, and a serene atmosphere that captivates every visitor.</p>
+                         -->
+                        <div class="city-highlights">
+                            <h4><i class="fas fa-water"></i> Famous Attractions</h4>
+                            <ul class="highlights-list">
+                                <li>Lake Pichola & City Palace</li>
+                                <li>Jag Mandir & Jag Niwas (Lake Palace)</li>
+                                <li>Fateh Sagar Lake & Saheliyon ki Bari</li>
+                                <li>Monsoon Palace & Bagore ki Haveli</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="city-features">
+                            <div class="feature">
+                                <i class="fas fa-water"></i>
+                                <span>Lakes</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-heart"></i>
+                                <span>Romantic</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-hotel"></i>
+                                <span>Heritage Hotels</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jaisalmer - Golden City -->
+                <div class="city-card">
+                    <div class="city-img">
+                        <img src="https://imgs.search.brave.com/eQHhCJ1uVwDFJxZ8ZDBOk8uhmW_PemUAof-gvTqomaU/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvOTQy/Njc3NzU4L3Bob3Rv/L2luZGlhLXJhamFz/dGhhbi10aGUtdG93/bi1vZi1qYWlzYWxt/ZXItaW4tdGhhdC1k/ZXNlcnQtamFpc2Fs/bWVyLWFrYS10aGUt/Z29sZGVuLWNpdHkt/c3RhbmRzLW9uLWEu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PUFFSGF6TC1KQ0E0/akFJckZnLWdfenly/MkxZakcwTmpyWG1F/UGh1Tjk1bjA9" alt="Jaisalmer - Golden City">
+                        <div class="city-number">3️⃣</div>
+                    </div>
+                    <div class="city-info">
+                        <h3>Jaisalmer – Golden City <span class="city-tag">Desert City</span></h3>
+                        <!-- <p class="city-desc">Thar Desert ke beech sthit, known for its golden sandstone architecture that glows in the sunlight. Home to the only living fort in India where people still reside.</p>
+                         -->
+                        <div class="city-highlights">
+                            <h4><i class="fas fa-fort-awesome"></i> Famous Attractions</h4>
+                            <ul class="highlights-list">
+                                <li>Jaisalmer Fort (living fort)</li>
+                                <li>Sam Sand Dunes & desert safari</li>
+                                <li>Patwon ki Haveli & Salim Singh ki Haveli</li>
+                                <li>Gadisar Lake & Desert National Park</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="city-features">
+                            <div class="feature">
+                                <i class="fas fa-sun"></i>
+                                <span>Desert City</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-camel"></i>
+                                <span>Camel Safari</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-fort-awesome"></i>
+                                <span>Living Fort</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jodhpur - Blue City -->
+                <div class="city-card">
+                    <div class="city-img">
+                        <img src="https://imgs.search.brave.com/-QZGNc4SSP2iIJJide4ripa-PGG-b8NvijTYwQ2D3dw/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjAx/NzQyNDc4Ny9waG90/by9hLXZpZXctZnJv/bS1hYm92ZS1vZi10/aGUtYmx1ZS1jaXR5/LW9mLWpvZGhwdXIt/c2Vlbi12aWEtYW4t/YXJhYmljLXN0eWxl/LXdpbmRvdy1pbmRp/YXMtcmFqYXN0aGFu/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz1QZWQ1aWRQOXJ6/SC1PVHJ4RElwdVV3/SU5rbm80RktCbWJu/Y1dTVkhhN2xZPQ" alt="Jodhpur - Blue City">
+                        <div class="city-number">4️⃣</div>
+                    </div>
+                    <div class="city-info">
+                        <h3>Jodhpur – Blue City <span class="city-tag">Sun City</span></h3>
+                        <!-- <p class="city-desc">Famous for its blue-colored houses around Mehrangarh Fort. The second largest city of Rajasthan, known for its magnificent forts, palaces, and vibrant culture.</p>
+                         -->
+                        <div class="city-highlights">
+                            <h4><i class="fas fa-fort-awesome"></i> Famous Attractions</h4>
+                            <ul class="highlights-list">
+                                <li>Mehrangarh Fort (largest in Rajasthan)</li>
+                                <li>Umaid Bhawan Palace</li>
+                                <li>Jaswant Thada & Clock Tower Market</li>
+                                <li>Mandore Gardens & Rao Jodha Park</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="city-features">
+                            <div class="feature">
+                                <i class="fas fa-paint-roller"></i>
+                                <span>Blue Houses</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-fort-awesome"></i>
+                                <span>Massive Fort</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-sun"></i>
+                                <span>Sun City</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pushkar - Holy City -->
+                <div class="city-card">
+                    <div class="city-img">
+                        <img src="https://imgs.search.brave.com/81fGaUREe7djBy1Fppbs1h0ulo1X7n2YvvoVIVmov-g/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zYWZl/YW5kaGVhbHRoeXRy/YXZlbC5jb20vd3At/Y29udGVudC91cGxv/YWRzLzIwMjAvMDEv/SU1HXzIwMTkxMTIz/XzE3MTM0NC0yLXNj/YWxlZC5qcGc" alt="Pushkar - Holy City">
+                        <div class="city-number">5️⃣</div>
+                    </div>
+                    <div class="city-info">
+                        <h3>Pushkar – Holy City <span class="city-tag">Pilgrimage City</span></h3>
+                        <!-- <p class="city-desc">Religious importance wala city with one of the world's rare Brahma temples. Famous for Pushkar Lake and the world's largest camel fair held annually.</p>
+                         -->
+                        <div class="city-highlights">
+                            <h4><i class="fas fa-pray"></i> Famous Attractions</h4>
+                            <ul class="highlights-list">
+                                <li>Brahma Temple (world's rare)</li>
+                                <li>Pushkar Lake & ghats</li>
+                                <li>Pushkar Camel Fair (world's largest)</li>
+                                <li>Savitri Temple & Rangji Temple</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="city-features">
+                            <div class="feature">
+                                <i class="fas fa-pray"></i>
+                                <span>Holy City</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-camel"></i>
+                                <span>Camel Fair</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-water"></i>
+                                <span>Sacred Lake</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mount Abu - Hill Station -->
+                <div class="city-card">
+                    <div class="city-img">
+                        <img src="https://imgs.search.brave.com/eYmIn56FPhINSIFy-JGoBq-rf4LYffGn9Eurd7LDYl4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTY4/MjE0OTY0Ny9waG90/by9tb3VudC1hYnUt/aGlsbC1zdGF0aW9u/LWluZGlhLmpwZz9z/PTYxMng2MTImdz0w/Jms9MjAmYz1laEZv/azZhYkN6Y0NuWTcw/cWE2WVRzSkdweEhE/X1hOYW5kZ1RtMkNh/SFVRPQ" alt="Mount Abu - Hill Station">
+                        <div class="city-number">6️⃣</div>
+                    </div>
+                    <div class="city-info">
+                        <h3>Mount Abu – Hill Station <span class="city-tag">Only Hill Station</span></h3>
+                        <!-- <p class="city-desc">Rajasthan ka only hill station with cool climate and natural beauty. A popular retreat from the desert heat with lakes, viewpoints, and beautiful Jain temples.</p>
+                         -->
+                        <div class="city-highlights">
+                            <h4><i class="fas fa-mountain"></i> Famous Attractions</h4>
+                            <ul class="highlights-list">
+                                <li>Dilwara Jain Temples (exquisite marble)</li>
+                                <li>Nakki Lake & boat rides</li>
+                                <li>Sunset Point & Honeymoon Point</li>
+                                <li>Guru Shikhar & Wildlife Sanctuary</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="city-features">
+                            <div class="feature">
+                                <i class="fas fa-mountain"></i>
+                                <span>Hill Station</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-snowflake"></i>
+                                <span>Cool Climate</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-hands-praying"></i>
+                                <span>Jain Temples</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regional Guide -->
+            <div class="regional-section">
+                <div class="regional-header">
+                    <div class="regional-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div>
+                        <h2>Regional Highlights of Rajasthan</h2>
+                        <p>Explore different regions of Rajasthan with unique characteristics</p>
+                    </div>
+                </div>
+                
+                <div class="regional-content">
+                    <div class="regional-item">
+                        <i class="fas fa-desert"></i>
+                        <div>
+                            <h4>Western Rajasthan (Desert Region)</h4>
+                            <p>Jaisalmer, Jodhpur, Bikaner - Desert landscape, forts, camel safaris</p>
+                            <p>Best for: Desert adventures, fort exploration</p>
+                        </div>
+                    </div>
+                    <div class="regional-item">
+                        <i class="fas fa-lake"></i>
+                        <div>
+                            <h4>Southern Rajasthan (Lake Region)</h4>
+                            <p>Udaipur, Mount Abu - Lakes, hills, romantic settings</p>
+                            <p>Best for: Romantic getaways, natural beauty</p>
+                        </div>
+                    </div>
+                    <div class="regional-item">
+                        <i class="fas fa-landmark"></i>
+                        <div>
+                            <h4>Eastern Rajasthan (Royal Region)</h4>
+                            <p>Jaipur, Ajmer, Pushkar - Royal heritage, pilgrimage sites</p>
+                            <p>Best for: Cultural exploration, shopping</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Cities Grid -->
+            <div class="city-grid">
+                <!-- Bikaner - Desert Heritage City -->
+                <div class="city-card">
+                    <div class="city-img">
+                        <img src="https://imgs.search.brave.com/mMsupJ6eCfGS9n2zzjkrnQP0GYlo96Pu7GuvKJX24oY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9ibG9n/Z2VyLmdvb2dsZXVz/ZXJjb250ZW50LmNv/bS9pbWcvYi9SMjl2/WjJ4bC9BVnZYc0Vn/dHZ2cUhNNzJzTHE5/ay1KaUN1ZkZDNmg0/d29OOWtpcUozRE1R/MTY4UURtbWxkeTMz/TDRSN1ZjSGU0TjUw/a3BlbEd4VUhLcGo3/dW5FQ00wS0hVZXpz/ZnpaZ3lQaXlfYnNs/M3B4MnVBbzhfUHh5/Y0hWWnJTRnl3Sy05/UW5sUzBreVJsbFRm/VG9qOFN2WjZpaDFJ/elU1TFJvYmg4NlFO/b3Y5MHhTR0JDemxU/NldQbEozSjVDR1Zn/d3d3bDEvczcyMC9B/JTIwcGhvdG8lMjBq/b3VybmV5JTIwdG8l/MjBMYWxiYWdoJTIw/UGFsYWNlJTIwaW4l/MjBCaWthbmVyLCUy/MFJhamFzdGhhbiwl/MjBJbmRpYS0yLmpw/Zw" alt="Bikaner - Desert Heritage City">
+                        <div class="city-number">7️⃣</div>
+                    </div>
+                    <div class="city-info">
+                        <h3>Bikaner – Desert Heritage City <span class="city-tag">Camel City</span></h3>
+                        <!-- <p class="city-desc">Desert culture city known for its magnificent forts, palaces, and temples. Famous for its snacks, sweets, and the unique Karni Mata Temple (Rat Temple).</p>
+                         -->
+                        <div class="city-highlights">
+                            <h4><i class="fas fa-fort-awesome"></i> Famous Attractions</h4>
+                            <ul class="highlights-list">
+                                <li>Junagarh Fort & Lalgarh Palace</li>
+                                <li>Karni Mata Temple (Rat Temple)</li>
+                                <li>National Camel Research Centre</li>
+                                <li>Gajner Palace & Wildlife Sanctuary</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="city-features">
+                            <div class="feature">
+                                <i class="fas fa-cookie-bite"></i>
+                                <span>Famous Snacks</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-paw"></i>
+                                <span>Rat Temple</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-fort-awesome"></i>
+                                <span>Desert Forts</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ajmer - Spiritual City -->
+                <div class="city-card">
+                    <div class="city-img">
+                        <img src="https://imgs.search.brave.com/rtYIFfPOuFsjxy0Xi69FRI_K2NQ_m9l7wbdcC1InU_k/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9oYmxp/bWcubW10Y2RuLmNv/bS9jb250ZW50L2h1/YmJsZS9pbWcvZGVz/dGltZy9tbXQvZGVz/dGluYXRpb24vbV9B/am1lcl90dl9kZXN0/aW5hdGlvbl9pbWdf/Nl9sXzk3MF8xMjk0/LmpwZw" alt="Ajmer - Spiritual City">
+                        <div class="city-number">8️⃣</div>
+                    </div>
+                    <div class="city-info">
+                        <h3>Ajmer – Spiritual City <span class="city-tag">Pilgrimage Center</span></h3>
+                        <!-- <p class="city-desc">Religious harmony ka symbol with the famous Ajmer Sharif Dargah. A city that attracts pilgrims from all faiths and showcases Rajasthan's spiritual diversity.</p>
+                         -->
+                        <div class="city-highlights">
+                            <h4><i class="fas fa-pray"></i> Famous Attractions</h4>
+                            <ul class="highlights-list">
+                                <li>Ajmer Sharif Dargah (Sufi shrine)</li>
+                                <li>Ana Sagar Lake & Daulat Bagh</li>
+                                <li>Adhai Din Ka Jhonpra (ancient mosque)</li>
+                                <li>Mayo College & Taragarh Fort</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="city-features">
+                            <div class="feature">
+                                <i class="fas fa-pray"></i>
+                                <span>Spiritual City</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-water"></i>
+                                <span>Lake City</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-hands-praying"></i>
+                                <span>Pilgrimage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chittorgarh - City of Valor -->
+                <div class="city-card">
+                    <div class="city-img">
+                        <img src="https://imgs.search.brave.com/8ChyQdLjArau_3alK5xtnabzalW2NSKnfdBGVkD7ark/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9ib3V0/aW5kaWEuczMudXMt/ZWFzdC0yLmFtYXpv/bmF3cy5jb20vaW1h/Z2VzL2Jsb2cvaW1h/Z2VzLzIwMjUtMDYt/MzAtMTItMjItNTAt/Njg2MjM0NDIxNTVl/Yy1mb3J0LTEuanBn" alt="Chittorgarh - City of Valor">
+                        <div class="city-number">9️⃣</div>
+                    </div>
+                    <div class="city-info">
+                        <h3>Chittorgarh – City of Valor <span class="city-tag">Historic City</span></h3>
+                        <!-- <p class="city-desc">Rajput bravery ke liye famous with the largest fort in India. A UNESCO World Heritage Site that tells tales of Rajput courage, sacrifice, and honor.</p>
+                         -->
+                        <div class="city-highlights">
+                            <h4><i class="fas fa-shield-alt"></i> Famous Attractions</h4>
+                            <ul class="highlights-list">
+                                <li>Chittorgarh Fort (largest in India)</li>
+                                <li>Vijay Stambh (Victory Tower)</li>
+                                <li>Kirti Stambh & Rana Kumbha Palace</li>
+                                <li>Padmini Palace & Meera Temple</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="city-features">
+                            <div class="feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Bravery City</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-fort-awesome"></i>
+                                <span>Largest Fort</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-landmark"></i>
+                                <span>UNESCO Site</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Travel Guide Card -->
+            <div class="travel-guide">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div>
+                        <h2>City Travel Guide & Tips</h2>
+                    </div>
+                </div>
+                <div class="guide-content">
+                    <div class="guide-image">
+                        <img src="https://imgs.search.brave.com/tkUkhdP-UUWQqiWVqQ1ZQfAVGwPmsHdAyTRsp1Aomlk/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90aHJp/bGxpbmd0cmF2ZWwu/aW4vd3AtY29udGVu/dC91cGxvYWRzLzIw/MTUvMTEvVHJhdmVs/LXRpcHMtdG8tUmFq/YXN0aGFuLnBuZw" alt="City Travel Guide">
+                    </div>
+                    <div class="guide-details">
+                        <h3>Planning Your City Tour</h3>
+                        <p>Make the most of your Rajasthan city tour with these essential tips:</p>
+                        <div class="guide-list">
+                            <ul>
+                                <li><span class="guide-name">Best Time to Visit:</span> <span class="guide-info">October to March (pleasant weather)</span></li>
+                                <li><span class="guide-name">Travel Between Cities:</span> <span class="guide-info">Trains & buses well connected</span></li>
+                                <li><span class="guide-name">Local Transport:</span> <span class="guide-info">Auto-rickshaws, taxis, local buses</span></li>
+                                <li><span class="guide-name">Stay Duration:</span> <span class="guide-info">2-3 days per city recommended</span></li>
+                                <li><span class="guide-name">Cultural Etiquette:</span> <span class="guide-info">Dress modestly, remove shoes at temples</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Best Time to Visit Cities -->
+            <div class="section-title">
+                <i class="fas fa-calendar-alt"></i>
+                <h2>Best Time to Visit Each City</h2>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <h4><i class="fas fa-sun"></i> Winter Cities (Oct-Mar)</h4>
+                    <p><strong>Jaipur:</strong> Pleasant weather, ideal for forts</p>
+                    <p><strong>Jaisalmer:</strong> Perfect for desert safaris</p>
+                    <p><strong>Jodhpur:</strong> Comfortable for fort visits</p>
+                    <p><strong>Pushkar:</strong> Camel Fair (Oct-Nov)</p>
+                </div>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-cloud-sun"></i> Year-Round Cities</h4>
+                    <p><strong>Udaipur:</strong> Beautiful in all seasons</p>
+                    <p><strong>Mount Abu:</strong> Always cool, monsoon special</p>
+                    <p><strong>Ajmer:</strong> Pilgrimage year-round</p>
+                    <p><strong>Chittorgarh:</strong> Historical site any time</p>
+                </div>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-umbrella-beach"></i> Summer Retreats</h4>
+                    <p><strong>Mount Abu:</strong> Only hill station, 20-30°C</p>
+                    <p><strong>Udaipur:</strong> Lakes provide relief</p>
+                    <p><strong>Early Morning:</strong> Best for desert cities</p>
+                    <p><strong>Heritage Hotels:</strong> Often have AC facilities</p>
+                </div>
+            </div>
+
+            <!-- Travel Planning -->
+            <div class="info-box" style="grid-column: 1/-1;">
+                <h4><i class="fas fa-route"></i> Rajasthan City Circuit Planning</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 15px;">
+                    <div>
+                        <h5>📍 Golden Triangle Circuit</h5>
+                        <p>• Day 1-3: Jaipur (Amber Fort, City Palace)</p>
+                        <p>• Day 4-5: Jodhpur (Mehrangarh Fort)</p>
+                        <p>• Day 6-7: Jaisalmer (Desert Safari)</p>
+                        <p>• Duration: 7-10 days</p>
+                    </div>
+                    <div>
+                        <h5>🏞️ Lake & Romantic Circuit</h5>
+                        <p>• Day 1-3: Udaipur (Lake Pichola, City Palace)</p>
+                        <p>• Day 4-5: Mount Abu (hill station)</p>
+                        <p>• Day 6: Ajmer & Pushkar (pilgrimage)</p>
+                        <p>• Duration: 6-8 days</p>
+                    </div>
+                    <div>
+                        <h5>🏰 Heritage & History Circuit</h5>
+                        <p>• Day 1-2: Chittorgarh (largest fort)</p>
+                        <p>• Day 3-4: Bikaner (Junagarh Fort)</p>
+                        <p>• Day 5-6: Jaipur (royal heritage)</p>
+                        <p>• Duration: 6-7 days</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back Button -->
+            <div class="back-to-home">
+                <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>RajasthanTour</h3>
+                    <p>Discover the majestic land of kings - Rajasthan. Explore royal heritage, vibrant culture, and breathtaking landscapes.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="cities.html" class="active">Cities</a></li>
+                        <li><a href="forts.html">Forts & Palaces</a></li>
+                        <li><a href="temples.html">Temples</a></li>
+                        <li><a href="culture.html">Culture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>More Links</h4>
+                    <ul>
+                        <li><a href="adventure.html">Adventure</a></li>
+                        <li><a href="food.html">Food</a></li>
+                        <li><a href="hotels.html">Hotels</a></li>
+                        <li><a href="shopping.html">Shopping</a></li>
+                        <li><a href="festivals.html">Festivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Jaipur, Rajasthan, India</li>
+                        <li><i class="fas fa-phone"></i> +91 123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@rajasthantour.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RajasthanTour. All rights reserved. | Designed with <i class="fas fa-heart"></i> for Rajasthan</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.city-card, .info-box, .travel-guide, .regional-item, .regional-section').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
